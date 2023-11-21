@@ -25,8 +25,8 @@ public sealed class UnicycleController : BaseComponent
 	Angles currentTilt = default;
 	Angles tiltVelocity = default; // Rate of change of tilt
 
-	public float SpringStiffness => 50f;
-	public float DampingRatio => 1.5f;
+	public float SpringStiffness => 20f;
+	public float DampingRatio => 0.5f;
 
 	public override void OnEnabled()
 	{
@@ -43,13 +43,11 @@ public sealed class UnicycleController : BaseComponent
 		var extents = ( maxs - mins ) / 2f;
 
 		var tr = Scene.PhysicsWorld.Trace
-			.Box( extents, pos, pos + Vector3.Down * 17.5f )
+			.Box( extents, pos, pos + Vector3.Down * 8 )
 			.WithTag( "solid" )
 			.Run();
 
 		Grounded = tr.Hit;
-
-		Log.Error( Grounded );
 
 		if ( Grounded )
 		{
@@ -72,9 +70,11 @@ public sealed class UnicycleController : BaseComponent
 
 		if ( Grounded )
 		{
+			var targetForward = Camera.Transform.Rotation.Angles().WithPitch( 0 ).ToRotation();
+			Transform.Rotation = Rotation.Slerp( Transform.Rotation, targetForward, 2f * Time.Delta );
 			var dot = Vector3.Dot( Rigidbody.Velocity, tr.Normal );
-			if ( dot < 0 ) Rigidbody.Velocity = ClipVelocity( Rigidbody.Velocity, tr.Normal );
-			Rigidbody.Velocity = ClipVelocity( Rigidbody.Velocity, Camera.Transform.Rotation.Right );
+			//if ( dot < 0 ) Rigidbody.Velocity = ClipVelocity( Rigidbody.Velocity, tr.Normal );
+			Rigidbody.Velocity = ClipVelocity( Rigidbody.Velocity, Transform.Rotation.Right );
 		}
 
 		if ( Rigidbody.Velocity.Length < 2f ) Rigidbody.AngularVelocity = Vector3.Zero;
@@ -101,7 +101,7 @@ public sealed class UnicycleController : BaseComponent
 		tiltVelocity += totalForce * Time.Delta;
 		currentTilt += tiltVelocity * Time.Delta;
 
-		TiltRoot.Transform.Rotation = Rotation.From( Camera.Transform.Rotation.Angles().WithPitch( 0 ) + currentTilt );
+		TiltRoot.Transform.Rotation = Rotation.From( Transform.Rotation.Angles().WithPitch( 0 ) + currentTilt );
 	}
 
 

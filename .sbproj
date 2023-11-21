@@ -1,8 +1,8 @@
 {
-  "Title": "Testbed",
+  "Title": "Testbed-UF",
   "Type": "game",
   "Org": "facepunch",
-  "Ident": "testbed",
+  "Ident": "testbeduf",
   "Tags": null,
   "Schema": 1,
   "HasAssets": true,
@@ -28,6 +28,18 @@
     "ProjectTemplate": null,
     "CsProjName": "",
     "HttpAllowList": null,
-    "TickRate": 50
+    "TickRate": 50,
+    "Physics": {
+      "SubSteps": 2,
+      "TimeScale": 1,
+      "Gravity": "0,0,-800",
+      "AirDensity": 1,
+      "SleepingEnabled": true,
+      "SimulationMode": "Continuous",
+      "PositionIterations": 4,
+      "VelocityIterations": 16,
+      "SoftBodyIterations": 1,
+      "SoftBodySubsteps": 1
+    }
   }
 }

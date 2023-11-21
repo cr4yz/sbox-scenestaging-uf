@@ -47,7 +47,7 @@ public class MapComponent : BaseComponent, BaseComponent.ExecuteInEditor
 
 		var assetName = package.GetMeta<string>( "PrimaryAsset" );
 
-		loadedMap = new Map( assetName, new MapComponentMapLoader( this ) );
+		loadedMap = new Map( "uf_quarry", new MapComponentMapLoader( this ) );
 
 		foreach( var body in loadedMap.PhysicsGroup.Bodies )
 		{
