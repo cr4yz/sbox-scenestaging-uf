@@ -7,11 +7,8 @@ public sealed class ThirdPersonCamera : BaseComponent
 	[Property]
 	public GameObject Target { get; set; }
 	[Property]
-	public float Distance { get; set; } = 560; // inches is our scale
-	[Property]
-	public float Smoothing { get; set; } = 25f;
+	public float Distance { get; set; } = 260; 
 
-	private Vector3 _desiredPosition;
 	private Vector2 _lookAngles;
 
 	public override void Update()
@@ -20,14 +17,14 @@ public sealed class ThirdPersonCamera : BaseComponent
 
 		_lookAngles.x -= Mouse.Delta.x * .01f;
 		_lookAngles.y += Mouse.Delta.y * .01f;
-		_lookAngles.y = Math.Clamp( _lookAngles.y, -35, 60 ); // Limit vertical angle
+		_lookAngles.y = Math.Clamp( _lookAngles.y, -35, 65 );
 
-		var rotation = Rotation.From( _lookAngles.y, _lookAngles.x, 0 );
-		_desiredPosition = Target.Transform.Position - (rotation * Vector3.Forward * Distance);
-		_desiredPosition += Vector3.Up * 250;
+		var targetRot = Rotation.From( _lookAngles.y, _lookAngles.x, 0 );
+		var center = Target.Transform.Position + Vector3.Up * 40;
+		var targetPos = center + targetRot.Forward * -Distance;
 
-		Transform.Position = Vector3.Lerp( Transform.Position, _desiredPosition, Smoothing * Time.Delta );
-		Transform.Rotation = Rotation.LookAt( Target.Transform.Position - Transform.Position );
+		Transform.Position = targetPos;
+		Transform.Rotation = targetRot;
 	}
 
 }

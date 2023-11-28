@@ -40,6 +40,18 @@
       "VelocityIterations": 16,
       "SoftBodyIterations": 1,
       "SoftBodySubsteps": 1
+    },
+    "Compiler": {
+      "RootNamespace": "Sandbox",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG;NET_2_0",
+      "NoWarn": "1701;1702;1591;",
+      "WarningsAsErrors": "",
+      "AssemblyReferences": [],
+      "IgnoreFolders": [
+        "editor",
+        "unittest"
+      ],
+      "DistinctAssemblyReferences": []
     }
   }
 }

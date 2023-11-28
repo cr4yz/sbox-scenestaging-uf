@@ -1,0 +1,13 @@
+{
+  "GameObjects": [],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "TimeScale": 1,
+    "ThreadedAnimation": true,
+    "UseFixedUpdate": true
+  },
+  "Title": "untitled",
+  "Description": "",
+  "__references": []
+}
