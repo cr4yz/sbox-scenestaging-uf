@@ -16,20 +16,24 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 		base.OnEnabled();
 
 		Mesh ??= EditableMesh.Cube( new Vector3( 128 ) );
-		Mesh.UpdateMeshData();
 
 		physicsBody = new( Scene.PhysicsWorld );
-		model = Model.Builder
-			.AddMesh( Mesh.Mesh )
-			.Create();
 
-		if ( !TryGetComponent<ModelComponent>( out var mr, false ) )
-			mr = GameObject.AddComponent<ModelComponent>();
+		Mesh.OnMeshChanged = () =>
+		{
+			model = Model.Builder
+				.AddMesh( Mesh.Mesh )
+				.Create();
 
-		mr.Model = model;
+			if ( !TryGetComponent<ModelComponent>( out var mr, false ) )
+				mr = GameObject.AddComponent<ModelComponent>();
 
-		Mesh.OnMeshChanged = GenerateCollisionMesh;
-		GenerateCollisionMesh();
+			mr.Model = model;
+
+			GenerateCollisionMesh();
+		};
+
+		Mesh.UpdateMeshData();
 	}
 
 	void GenerateCollisionMesh()
@@ -37,7 +41,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 		physicsBody.EnableTraceAndQueries = true;
 		physicsBody.ClearShapes();
 		physicsBody.Transform = Transform.World;
-		var shape = physicsBody.AddMeshShape( Mesh.Vertexes.Select( x => x.Vertex.Position ).ToList(), Mesh.Indices );
+		var shape = physicsBody.AddMeshShape( Mesh.Vertexes.Select( x => x.Position ).ToList(), Mesh.Indices );
 		shape.Tags.SetFrom( GameObject.Tags );
 	}
 
@@ -49,7 +53,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 		physicsBody = null;
 	}
 
-	Dictionary<int, object> hack;
+	Dictionary<int, TestShit> hack;
 	public override void DrawGizmos()
 	{
 		base.DrawGizmos();
@@ -58,10 +62,10 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 
 		if ( Mesh.Selection.Any() )
 		{
-			var center = Mesh.GetSelectionCenter();
-			using ( Gizmo.Scope( "Position", center ) )
+			var center = Mesh.CalculateCenter( Mesh.Selection );
+			using ( Gizmo.Scope( "position", center ) )
 			{
-				if ( Gizmo.Control.Position( "vertmove", center, out var newPos ) )
+				if ( Gizmo.Control.Position( "position", center, out var newPos ) )
 				{
 					Mesh.TranslateSelection( newPos - center );
 				}
@@ -76,23 +80,25 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 
 			if ( !hack.ContainsKey( das ) )
 			{
-				hack[das] = new object();
+				hack[das] = new TestShit();
 			}
 
-			using ( Gizmo.Scope( $"part-{das}" ) )
-			{
-				Gizmo.Object = hack[das];
+			hack[das].Part = part;
+			hack[das].Mesh = Mesh;
 
+			using ( Gizmo.ObjectScope( hack[das], new Transform( 0, Rotation.Identity, 1 ) ) )
+			{
 				switch ( part.Type )
 				{
 					case MeshPartTypes.Face:
-						var posA = Mesh.Positions[Mesh.Vertexes[part.A].PositionIndex];
-						var posB = Mesh.Positions[Mesh.Vertexes[part.B].PositionIndex];
-						var posC = Mesh.Positions[Mesh.Vertexes[part.C].PositionIndex];
-						var posD = Mesh.Positions[Mesh.Vertexes[part.D].PositionIndex];
+						var posA = Mesh.Vertexes[part.A].Position;
+						var posB = Mesh.Vertexes[part.B].Position;
+						var posC = Mesh.Vertexes[part.C].Position;
+						var posD = Mesh.Vertexes[part.D].Position;
 
 						var center = (posA + posB + posC + posD) / 4;
 						var box = new BBox( center, 5f );
+						var end = center + Mesh.Vertexes[part.A].Normal * 20f;
 
 						Gizmo.Draw.Color = Color.White;
 						Gizmo.Draw.SolidBox( box );
@@ -101,9 +107,16 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 						Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.White;
 						Gizmo.Draw.Color = Gizmo.IsSelected ? Color.Green : Gizmo.Draw.Color;
 						Gizmo.Draw.SolidBox( box );
+
+						using ( Gizmo.Hitbox.LineScope() )
+						{
+							Gizmo.Draw.LineThickness = 3f;
+							Gizmo.Draw.Line( center, end );
+						}
+
 						break;
 					case MeshPartTypes.Vertex:
-						var pos = Mesh.Positions[Mesh.Vertexes[part.A].PositionIndex];
+						var pos = Mesh.Vertexes[part.A].Position;
 
 						var vertbox = new BBox()
 						{
@@ -117,27 +130,22 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 						Gizmo.Draw.SolidBox( vertbox );
 						break;
 					case MeshPartTypes.Edge:
-						var edgeA = Mesh.Positions[Mesh.Vertexes[part.A].PositionIndex];
-						var edgeB = Mesh.Positions[Mesh.Vertexes[part.B].PositionIndex];
+						var edgeA = Mesh.Vertexes[part.A].Position;
+						var edgeB = Mesh.Vertexes[part.B].Position;
 
 						using ( Gizmo.Hitbox.LineScope() )
 						{
 							Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.White;
-							Gizmo.Draw.Color = Gizmo.IsSelected ? Color.Green : Gizmo.Draw.Color;
+							Gizmo.Draw.Color = part.Selected ? Color.Green : Gizmo.Draw.Color;
 							Gizmo.Draw.Line( edgeA, edgeB );
 						}
 
 						break;
 				}
 
-				if ( Gizmo.IsPressed )
+				if ( Gizmo.IsPressed && Gizmo.HasClicked )
 				{
 					Gizmo.Select();
-				}
-
-				if ( Gizmo.IsPressed && Gizmo.HasPressed && part.Type == MeshPartTypes.Face )
-				{
-					Mesh.ExtrudeSelection( 64f );
 				}
 
 				part.Selected = Gizmo.IsSelected;
@@ -145,4 +153,10 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 		}
 	}
 
+}
+
+public class TestShit
+{
+	public MeshPart Part;
+	public EditableMesh Mesh;
 }

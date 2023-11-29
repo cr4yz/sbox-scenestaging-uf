@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class EditableMesh
 {
 
-	public List<Vector3> Positions { get; set; }
-	public List<SimpleVertexWrapper> Vertexes { get; set; }
+	public List<Vector3> DistinctPositions { get; set; }
+	public List<SimpleVertex_S> Vertexes { get; set; }
 	public List<int> Indices { get; set; }
 
 	List<MeshPart> parts = new();
@@ -18,74 +18,35 @@ public class EditableMesh
 
 	public Action OnMeshChanged;
 
-	public Vector3 GetSelectionCenter()
-	{
-		Vector3 center = default;
-		int count = default;
-
-		foreach ( var part in Selection )
-		{
-			switch ( part.Type )
-			{
-				case MeshPartTypes.Face:
-					center += Positions[Vertexes[part.A].PositionIndex];
-					center += Positions[Vertexes[part.B].PositionIndex];
-					center += Positions[Vertexes[part.C].PositionIndex];
-					center += Positions[Vertexes[part.D].PositionIndex];
-					count += 4;
-					break;
-				case MeshPartTypes.Vertex:
-					center += Positions[Vertexes[part.A].PositionIndex];
-					count += 1;
-					break;
-				case MeshPartTypes.Edge:
-					center += Positions[Vertexes[part.A].PositionIndex];
-					center += Positions[Vertexes[part.B].PositionIndex];
-					count += 2;
-					break;
-			}
-		}
-
-		if ( count == 0 ) return default;
-
-		return center / count;
-	}
-
-	float timeSinceExtrude;
-	public void ExtrudeSelection( float distance )
-	{
-		// I don't think what I've done makes this easy
-	}
-
 	public void TranslateSelection( Vector3 translation )
 	{
-		List<int> positions = new();
+		List<int> distinctPositions = new();
 
 		foreach ( var part in Selection )
 		{
 			switch ( part.Type )
 			{
 				case MeshPartTypes.Face:
-					positions.Add( Vertexes[part.A].PositionIndex );
-					positions.Add( Vertexes[part.B].PositionIndex );
-					positions.Add( Vertexes[part.C].PositionIndex );
-					positions.Add( Vertexes[part.D].PositionIndex );
+					distinctPositions.Add( Vertexes[part.A].DistinctIndex );
+					distinctPositions.Add( Vertexes[part.B].DistinctIndex );
+					distinctPositions.Add( Vertexes[part.C].DistinctIndex );
+					distinctPositions.Add( Vertexes[part.D].DistinctIndex );
 					break;
 				case MeshPartTypes.Vertex:
-					positions.Add( Vertexes[part.A].PositionIndex );
+					distinctPositions.Add( Vertexes[part.A].DistinctIndex );
 					break;
 				case MeshPartTypes.Edge:
-					positions.Add( Vertexes[part.A].PositionIndex );
-					positions.Add( Vertexes[part.B].PositionIndex );
+					distinctPositions.Add( Vertexes[part.A].DistinctIndex );
+					distinctPositions.Add( Vertexes[part.B].DistinctIndex );
 					break;
 			}
 		}
 
-		if ( !positions.Any() ) return;
+		if ( !distinctPositions.Any() ) return;
 
-		foreach ( var pos in positions )
+		foreach ( var pos in distinctPositions )
 		{
-			var newPosition = Positions[pos] + translation;
+			var newPosition = DistinctPositions[pos] + translation;
 			UpdateVertexPosition( pos, newPosition );
 		}
 
@@ -94,59 +55,185 @@ public class EditableMesh
 		OnMeshChanged?.Invoke();
 	}
 
-	void UpdateVertexPosition( int positionIndex, Vector3 newPosition )
+	public void ExtrudeSelection( float distance )
 	{
-		Positions[positionIndex] = newPosition;
+		var face = Selection.FirstOrDefault( x => x.Type == MeshPartTypes.Face );
+		if ( face == null ) return;
 
-		foreach ( var vertexWrapper in Vertexes )
+		var originalVerts = new List<int> { face.A, face.B, face.C, face.D };
+
+		SortFaceVertices( ref originalVerts );
+
+		var normal = CalculateAverageNormal( originalVerts );
+		var extrudedVerts = ExtrudeVertices( originalVerts, normal * distance );
+
+		AddFaceIndices( extrudedVerts[0], extrudedVerts[1], extrudedVerts[2], extrudedVerts[3] );
+
+		for ( int i = 0; i < originalVerts.Count; i++ )
 		{
-			if ( vertexWrapper.PositionIndex != positionIndex ) 
-				continue;
-
-			var vertex = vertexWrapper.Vertex;
-			vertex.Position = newPosition;
-			vertexWrapper.Vertex = vertex;
+			int next = (i + 1) % originalVerts.Count;
+			AddFaceIndices( originalVerts[i], originalVerts[next], extrudedVerts[next], extrudedVerts[i] );
 		}
+
+		UpdateMeshData();
+	}
+
+	public Vector3 CalculateCenter( IEnumerable<MeshPart> parts )
+	{
+		if ( parts == null || !parts.Any() ) return default;
+
+		Vector3 center = default;
+
+		foreach ( var part in parts )
+		{
+			center += CalculateCenter( part );
+		}
+
+		return center / Selection.Count();
+	}
+
+	public Vector3 CalculateCenter( MeshPart part )
+	{
+		Vector3 center = default;
+		int count = 0;
+
+		switch ( part.Type )
+		{
+			case MeshPartTypes.Face:
+				center += Vertexes[part.A].Position;
+				center += Vertexes[part.B].Position;
+				center += Vertexes[part.C].Position;
+				center += Vertexes[part.D].Position;
+				count += 4;
+				break;
+			case MeshPartTypes.Vertex:
+				center += Vertexes[part.A].Position;
+				count += 1;
+				break;
+			case MeshPartTypes.Edge:
+				center += Vertexes[part.A].Position;
+				center += Vertexes[part.B].Position;
+				count += 2;
+				break;
+		}
+
+		return center / count;
 	}
 
 	public void UpdateMeshData()
 	{
-		if ( Mesh == null )
-		{
-			Mesh = new Mesh( Material.Load( "materials/dev/reflectivity_30.vmat" ) );
-			Mesh.CreateVertexBuffer<SimpleVertex>( Vertexes.Count, SimpleVertex.Layout, Vertexes.Select( x => (SimpleVertex)x.Vertex ).ToArray() );
-			Mesh.CreateIndexBuffer( Indices.Count, Indices.ToArray() );
-		}
-		else
-		{
-			Mesh.SetVertexBufferSize( Vertexes.Count );
-			Mesh.SetIndexBufferSize( Indices.Count );
-
-			Mesh.SetVertexBufferData( Vertexes.Select( v => (SimpleVertex)v.Vertex ).ToList(), 0 );
-			Mesh.SetIndexBufferData( Indices.ToList(), 0 );
-		}
-
-		Mesh.Bounds = BBox.FromPoints( Positions );
+		Mesh = new Mesh( Material.Load( "materials/dev/reflectivity_30.vmat" ) );
+		Mesh.CreateVertexBuffer<SimpleVertex>( Vertexes.Count, SimpleVertex.Layout, Vertexes.Select( x => (SimpleVertex)x ).ToArray() );
+		Mesh.CreateIndexBuffer( Indices.Count, Indices.ToArray() );
+		Mesh.Bounds = BBox.FromPoints( DistinctPositions );
 
 		parts.Clear();
 		parts.AddRange( FindQuads() );
 
 		var edges = FindEdges();
 		var distinctEdges = edges
-			.GroupBy( edge => new { Min = Math.Min( Vertexes[edge.A].PositionIndex, Vertexes[edge.B].PositionIndex ), Max = Math.Max( Vertexes[edge.A].PositionIndex, Vertexes[edge.B].PositionIndex ) } )
+			.GroupBy( edge => {
+				return new
+				{
+					Min = Math.Min( Vertexes[edge.A].DistinctIndex, Vertexes[edge.B].DistinctIndex ),
+					Max = Math.Max( Vertexes[edge.A].DistinctIndex, Vertexes[edge.B].DistinctIndex )
+				};
+			} )
 			.Select( group => group.First() )
 			.ToList();
 
 		parts.AddRange( distinctEdges );
 
-		var uniqueVerts = Vertexes.DistinctBy( x => x.PositionIndex );
+		var uniqueVerts = Vertexes.DistinctBy( x => x.DistinctIndex );
 		foreach ( var v in uniqueVerts )
 		{
 			parts.Add( new MeshPart()
 			{
-				A = v.PositionIndex,
+				A = v.DistinctIndex,
 				Type = MeshPartTypes.Vertex
 			} );
+		}
+
+		OnMeshChanged?.Invoke();
+	}
+
+	List<int> ExtrudeVertices( List<int> originalVerts, Vector3 direction )
+	{
+		var newVertsIndices = new List<int>();
+		foreach ( var index in originalVerts )
+		{
+			var originalVertex = Vertexes[index];
+
+			DistinctPositions.Add( originalVertex.Position + direction );
+
+			var newVertex = new SimpleVertex_S
+			{
+				Position = originalVertex.Position + direction,
+				Normal = originalVertex.Normal,
+				Tangent = originalVertex.Tangent,
+				Texcoord = originalVertex.Texcoord,
+				DistinctIndex = DistinctPositions.Count - 1
+			};
+
+			Vertexes.Add( newVertex );
+			newVertsIndices.Add( Vertexes.Count - 1 );
+		}
+		return newVertsIndices;
+	}
+
+	Vector3 CalculateAverageNormal( List<int> vertIndices )
+	{
+		var normalSum = Vector3.Zero;
+		foreach ( var index in vertIndices )
+		{
+			normalSum += Vertexes[index].Normal;
+		}
+		return normalSum.Normal;
+	}
+
+	void SortFaceVertices( ref List<int> vertIndices )
+	{
+		Vector3 centroid = Vector3.Zero;
+		foreach ( var index in vertIndices )
+		{
+			centroid += Vertexes[index].Position;
+		}
+		centroid /= vertIndices.Count;
+
+		var normal = CalculateAverageNormal( vertIndices );
+
+		vertIndices.Sort( ( a, b ) =>
+		{
+			Vector3 dirToA = Vertexes[a].Position - centroid;
+			Vector3 dirToB = Vertexes[b].Position - centroid;
+			Vector3 cross = Vector3.Cross( dirToA, dirToB );
+
+			return Math.Sign( Vector3.Dot( cross, normal ) * -1 );
+		} );
+	}
+
+	void AddFaceIndices( int v0, int v1, int v2, int v3 )
+	{
+		Indices.Add( v0 );
+		Indices.Add( v1 );
+		Indices.Add( v2 );
+
+		Indices.Add( v2 );
+		Indices.Add( v3 );
+		Indices.Add( v0 );
+	}
+
+	void UpdateVertexPosition( int distinctIndex, Vector3 newPosition )
+	{
+		DistinctPositions[distinctIndex] = newPosition;
+
+		for ( int i = 0; i < Vertexes.Count; i++ )
+		{
+			var v = Vertexes[i];
+			if ( v.DistinctIndex != distinctIndex ) continue;
+
+			v.Position = newPosition;
+			Vertexes[i] = v;
 		}
 	}
 
@@ -220,7 +307,7 @@ public class EditableMesh
 		var result = new EditableMesh();
 		result.Vertexes = new();
 		result.Indices = new();
-		result.Positions = new List<Vector3>()
+		result.DistinctPositions = new List<Vector3>()
 		{
 			new Vector3(-0.5f, -0.5f, 0.5f) * size,
 			new Vector3(-0.5f, 0.5f, 0.5f) * size,
@@ -271,18 +358,15 @@ public class EditableMesh
 			for ( var j = 0; j < 4; ++j )
 			{
 				var vertexIndex = faceIndices[(i * 4) + j];
-				var pos = result.Positions[vertexIndex];
+				var pos = result.DistinctPositions[vertexIndex];
 
-				result.Vertexes.Add( new SimpleVertexWrapper()
+				result.Vertexes.Add( new()
 				{
-					Vertex = new()
-					{
-						Position = pos,
-						Normal = normal,
-						Tangent = tangent,
-						Texcoord = Planar( pos / 32, uAxis[i], vAxis[i] )
-					},
-					PositionIndex = vertexIndex,
+					Position = pos,
+					Normal = normal,
+					Tangent = tangent,
+					Texcoord = Planar( pos / 32, uAxis[i], vAxis[i] ),
+					DistinctIndex = vertexIndex
 				} );
 			}
 
@@ -332,6 +416,7 @@ public struct SimpleVertex_S
 	public Vector3 Normal { get; set; }
 	public Vector3 Tangent { get; set; }
 	public Vector2 Texcoord { get; set; }
+	public int DistinctIndex { get; set; }
 
 	public static explicit operator SimpleVertex( SimpleVertex_S vertex )
 	{
@@ -343,22 +428,10 @@ public struct SimpleVertex_S
 			texcoord = vertex.Texcoord
 		};
 	}
-
-	public static explicit operator SimpleVertex_S( SimpleVertex vertex )
-	{
-		return new SimpleVertex_S()
-		{
-			Position = vertex.position,
-			Normal = vertex.normal,
-			Tangent = vertex.tangent,
-			Texcoord = vertex.texcoord
-		};
-	}
-
 }
 
 public class SimpleVertexWrapper
 {
 	public SimpleVertex_S Vertex { get; set; }
-	public int PositionIndex { get; set; }
+	public int DistinctIndex { get; set; }
 }

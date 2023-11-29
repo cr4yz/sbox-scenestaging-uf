@@ -33,7 +33,7 @@
       "Id": "02f905cd-7a21-4182-853f-e35f68bc246b",
       "Name": "Player",
       "Enabled": true,
-      "Position": "0,0,164.959",
+      "Position": "-324.7346,0,164.959",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "player",
@@ -110,7 +110,7 @@
       "Id": "38e2bfff-7430-4de6-ad11-37c6bf6d1d18",
       "Name": "Player Wheel",
       "Enabled": true,
-      "Position": "0,0,177.3389",
+      "Position": "-205.6695,0,177.3389",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
       "Tags": "player",
@@ -149,1956 +149,6 @@
       ]
     },
     {
-      "Id": "b88ae073-bee3-404f-a99e-22eb6295ce2a",
-      "Name": "Object",
-      "Enabled": true,
-      "Position": "0,0,0",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "solid",
-      "Components": [
-        {
-          "__type": "EditableMeshComponent",
-          "__enabled": true,
-          "Mesh": {
-            "Positions": [
-              "-1792.838,-1587.548,-20.00788",
-              "-1792.838,1218.762,-20.00788",
-              "577.9932,1218.762,-20.00788",
-              "577.9932,-1587.548,-20.00788",
-              "-1792.838,-1587.548,-64",
-              "-1792.838,1218.762,-64",
-              "577.9932,1218.762,-64",
-              "577.9932,-1587.548,-64"
-            ],
-            "Vertexes": [
-              {
-                "Vertex": {
-                  "Position": "-1792.838,-1587.548,-20.00788",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,1218.762,-20.00788",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,1218.762,-20.00788",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,-1587.548,-20.00788",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,-1587.548,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,1218.762,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,1218.762,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,-1587.548,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,-1587.548,-20.00788",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,-1587.548,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,1218.762,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,1218.762,-20.00788",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,1218.762,-20.00788",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,1218.762,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,1218.762,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,1218.762,-20.00788",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,1218.762,-20.00788",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,1218.762,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,-1587.548,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,-1587.548,-20.00788",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,-1587.548,-20.00788",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "577.9932,-1587.548,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,-1587.548,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-1792.838,-1587.548,-20.00788",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,-2"
-                }
-              }
-            ],
-            "Indices": [
-              0,
-              2,
-              1,
-              2,
-              0,
-              3,
-              4,
-              6,
-              5,
-              6,
-              4,
-              7,
-              8,
-              10,
-              9,
-              10,
-              8,
-              11,
-              12,
-              14,
-              13,
-              14,
-              12,
-              15,
-              16,
-              18,
-              17,
-              18,
-              16,
-              19,
-              20,
-              22,
-              21,
-              22,
-              20,
-              23
-            ],
-            "Parts": [
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-            ],
-            "Selection": [],
-            "Mesh": {
-              "IsValid": true,
-              "HasIndexBuffer": true,
-              "IndexCount": 36,
-              "HasVertexBuffer": true,
-              "VertexCount": 24
-            }
-          }
-        },
-        {
-          "__type": "ModelComponent",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialOverride": null,
-          "Model": "sbox_procedural_model.vmdl",
-          "ShouldCastShadows": true,
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
-      "Id": "f5f7eeb0-bb1d-4066-9177-ecadae5537ff",
-      "Name": "Object",
-      "Enabled": true,
-      "Position": "-483.2652,0,0",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Components": [
-        {
-          "__type": "EditableMeshComponent",
-          "__enabled": true,
-          "Mesh": {
-            "Positions": [
-              "-225.7659,-66.11494,58.86868",
-              "-225.7659,61.88507,58.86868",
-              "64,64,-29.46491",
-              "64,-64,-29.46491",
-              "-225.7659,-66.11494,-64.00005",
-              "-225.7659,61.88507,-64.00005",
-              "64,64,-64",
-              "64,-64,-64"
-            ],
-            "Vertexes": [
-              {
-                "Vertex": {
-                  "Position": "-225.7659,-66.11494,58.86868",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,61.88507,58.86868",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-29.46491",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-64,-29.46491",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,61.88507,-64.00005",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,-66.11494,-64.00005",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,-66.11494,58.86868",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,-66.11494,-64.00005",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,61.88507,-64.00005",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,61.88507,58.86868",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,61.88507,58.86868",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,61.88507,-64.00005",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-29.46491",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-29.46491",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-64,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-64,-29.46491",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-64,-29.46491",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-64,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,-66.11494,-64.00005",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-225.7659,-66.11494,58.86868",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,-2"
-                }
-              }
-            ],
-            "Indices": [
-              0,
-              2,
-              1,
-              2,
-              0,
-              3,
-              4,
-              6,
-              5,
-              6,
-              4,
-              7,
-              8,
-              10,
-              9,
-              10,
-              8,
-              11,
-              12,
-              14,
-              13,
-              14,
-              12,
-              15,
-              16,
-              18,
-              17,
-              18,
-              16,
-              19,
-              20,
-              22,
-              21,
-              22,
-              20,
-              23
-            ],
-            "Parts": [
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-            ],
-            "Selection": [],
-            "Mesh": {
-              "IsValid": true,
-              "HasIndexBuffer": true,
-              "IndexCount": 36,
-              "HasVertexBuffer": true,
-              "VertexCount": 24
-            }
-          }
-        },
-        {
-          "__type": "ModelComponent",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialOverride": "materials/dev/dev_measuregeneric01.vmat",
-          "Model": "sbox_procedural_model.vmdl",
-          "ShouldCastShadows": true,
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
-      "Id": "eed8fcf8-9931-44bd-8bbc-05b4bc4a8cdd",
-      "Name": "Object",
-      "Enabled": true,
-      "Position": "-1722.292,1139.841,-0.0002176391",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Components": [
-        {
-          "__type": "EditableMeshComponent",
-          "__enabled": true,
-          "Mesh": {
-            "Positions": [
-              "-64,-2696.282,259.1228",
-              "-64,64,259.1228",
-              "-41.53646,64,259.1228",
-              "-41.53646,-2696.282,259.1228",
-              "-64,-2696.282,-64",
-              "-64,64,-64",
-              "-41.53646,64,-64",
-              "-41.53646,-2696.282,-64"
-            ],
-            "Vertexes": [
-              {
-                "Vertex": {
-                  "Position": "-64,-2696.282,259.1228",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,64,259.1228",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,64,259.1228",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,-2696.282,259.1228",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,-2696.282,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,-2696.282,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,-2696.282,259.1228",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,-2696.282,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,64,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,64,259.1228",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,64,259.1228",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,64,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,64,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,64,259.1228",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,64,259.1228",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,64,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,-2696.282,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,-2696.282,259.1228",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,-2696.282,259.1228",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "-41.53646,-2696.282,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,-2696.282,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,-2696.282,259.1228",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,-2"
-                }
-              }
-            ],
-            "Indices": [
-              0,
-              2,
-              1,
-              2,
-              0,
-              3,
-              4,
-              6,
-              5,
-              6,
-              4,
-              7,
-              8,
-              10,
-              9,
-              10,
-              8,
-              11,
-              12,
-              14,
-              13,
-              14,
-              12,
-              15,
-              16,
-              18,
-              17,
-              18,
-              16,
-              19,
-              20,
-              22,
-              21,
-              22,
-              20,
-              23
-            ],
-            "Parts": [
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-            ],
-            "Selection": [],
-            "Mesh": {
-              "IsValid": true,
-              "HasIndexBuffer": true,
-              "IndexCount": 36,
-              "HasVertexBuffer": true,
-              "VertexCount": 24
-            }
-          }
-        },
-        {
-          "__type": "ModelComponent",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialOverride": null,
-          "Model": "sbox_procedural_model.vmdl",
-          "ShouldCastShadows": true,
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
-      "Id": "5c25b07a-fdc8-4349-a953-89296ea7d4ac",
-      "Name": "Object (1)",
-      "Enabled": true,
-      "Position": "491.8085,1139.841,-0.0002176391",
-      "Rotation": "0,0,0,1",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Components": [
-        {
-          "__type": "EditableMeshComponent",
-          "__enabled": true,
-          "Mesh": {
-            "Positions": [
-              "42.19714,-2696.282,264.6313",
-              "42.19714,64,264.6313",
-              "64,64,264.6313",
-              "64,-2696.282,264.6313",
-              "42.19714,-2696.282,-64",
-              "42.19714,64,-64",
-              "64,64,-64",
-              "64,-2696.282,-64"
-            ],
-            "Vertexes": [
-              {
-                "Vertex": {
-                  "Position": "42.19714,-2696.282,264.6313",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,64,264.6313",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,264.6313",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-2696.282,264.6313",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-2696.282,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,-2696.282,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,-2696.282,264.6313",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,-2696.282,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,64,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,64,264.6313",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,64,264.6313",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,64,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,264.6313",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,264.6313",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-2696.282,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-2696.282,264.6313",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-2696.282,264.6313",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64,-2696.282,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,-2696.282,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "42.19714,-2696.282,264.6313",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,-2"
-                }
-              }
-            ],
-            "Indices": [
-              0,
-              2,
-              1,
-              2,
-              0,
-              3,
-              4,
-              6,
-              5,
-              6,
-              4,
-              7,
-              8,
-              10,
-              9,
-              10,
-              8,
-              11,
-              12,
-              14,
-              13,
-              14,
-              12,
-              15,
-              16,
-              18,
-              17,
-              18,
-              16,
-              19,
-              20,
-              22,
-              21,
-              22,
-              20,
-              23
-            ],
-            "Parts": [
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-            ],
-            "Selection": [],
-            "Mesh": {
-              "IsValid": true,
-              "HasIndexBuffer": true,
-              "IndexCount": 36,
-              "HasVertexBuffer": true,
-              "VertexCount": 24
-            }
-          }
-        },
-        {
-          "__type": "ModelComponent",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialOverride": null,
-          "Model": "sbox_procedural_model.vmdl",
-          "ShouldCastShadows": true,
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
-      "Id": "e643c5ea-b170-4743-a2d3-73d27b52d5ff",
-      "Name": "Object (2)",
-      "Enabled": true,
-      "Position": "444.3641,1140.026,-0.0002353043",
-      "Rotation": "-0.0000000421337,0.0000000000000009442121,-0.7068861,0.7073275",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Components": [
-        {
-          "__type": "EditableMeshComponent",
-          "__enabled": true,
-          "Mesh": {
-            "Positions": [
-              "-63.99977,-2209.129,262.4492",
-              "-64,90.43898,262.4492",
-              "-33.96263,90.43898,262.4492",
-              "-33.96242,-2209.129,262.4492",
-              "-63.99977,-2209.129,-64",
-              "-64,90.43898,-64",
-              "-33.96263,90.43898,-64",
-              "-33.96242,-2209.129,-64"
-            ],
-            "Vertexes": [
-              {
-                "Vertex": {
-                  "Position": "-63.99977,-2209.129,262.4492",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,90.43898,262.4492",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96263,90.43898,262.4492",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96242,-2209.129,262.4492",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96242,-2209.129,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96263,90.43898,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,90.43898,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-63.99977,-2209.129,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-63.99977,-2209.129,262.4492",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "-63.99977,-2209.129,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,90.43898,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,90.43898,262.4492",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,90.43898,262.4492",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "-64,90.43898,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96263,90.43898,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96263,90.43898,262.4492",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96263,90.43898,262.4492",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96263,90.43898,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96242,-2209.129,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96242,-2209.129,262.4492",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96242,-2209.129,262.4492",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "-33.96242,-2209.129,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "-63.99977,-2209.129,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "-63.99977,-2209.129,262.4492",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,-2"
-                }
-              }
-            ],
-            "Indices": [
-              0,
-              2,
-              1,
-              2,
-              0,
-              3,
-              4,
-              6,
-              5,
-              6,
-              4,
-              7,
-              8,
-              10,
-              9,
-              10,
-              8,
-              11,
-              12,
-              14,
-              13,
-              14,
-              12,
-              15,
-              16,
-              18,
-              17,
-              18,
-              16,
-              19,
-              20,
-              22,
-              21,
-              22,
-              20,
-              23
-            ],
-            "Parts": [
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-            ],
-            "Selection": [],
-            "Mesh": {
-              "IsValid": true,
-              "HasIndexBuffer": true,
-              "IndexCount": 36,
-              "HasVertexBuffer": true,
-              "VertexCount": 24
-            }
-          }
-        },
-        {
-          "__type": "ModelComponent",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialOverride": null,
-          "Model": "sbox_procedural_model.vmdl",
-          "ShouldCastShadows": true,
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
-      "Id": "972c8d83-6a50-4fbb-be5a-e2f36dfad223",
-      "Name": "Object (3)",
-      "Enabled": true,
-      "Position": "446.0028,-1486.073,-0.00007887423",
-      "Rotation": "-0.0000000421337,0.0000000000000009442121,-0.7068861,0.7073275",
-      "Scale": "1,1,1",
-      "Tags": "",
-      "Components": [
-        {
-          "__type": "EditableMeshComponent",
-          "__enabled": true,
-          "Mesh": {
-            "Positions": [
-              "18.8637,-2208.754,266.7962",
-              "18.86341,90.99363,266.7962",
-              "64,90.99363,266.7962",
-              "64.00027,-2208.754,266.7962",
-              "18.8637,-2208.754,-64",
-              "18.86341,90.99363,-64",
-              "64,90.99363,-64",
-              "64.00027,-2208.754,-64"
-            ],
-            "Vertexes": [
-              {
-                "Vertex": {
-                  "Position": "18.8637,-2208.754,266.7962",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "18.86341,90.99363,266.7962",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "64,90.99363,266.7962",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64.00027,-2208.754,266.7962",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64.00027,-2208.754,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "64,90.99363,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "18.86341,90.99363,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "18.8637,-2208.754,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "18.8637,-2208.754,266.7962",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                }
-              },
-              {
-                "Vertex": {
-                  "Position": "18.8637,-2208.754,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "18.86341,90.99363,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "18.86341,90.99363,266.7962",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "18.86341,90.99363,266.7962",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 1
-              },
-              {
-                "Vertex": {
-                  "Position": "18.86341,90.99363,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 5
-              },
-              {
-                "Vertex": {
-                  "Position": "64,90.99363,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "64,90.99363,266.7962",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,90.99363,266.7962",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 2
-              },
-              {
-                "Vertex": {
-                  "Position": "64,90.99363,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 6
-              },
-              {
-                "Vertex": {
-                  "Position": "64.00027,-2208.754,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "64.00027,-2208.754,266.7962",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64.00027,-2208.754,266.7962",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 3
-              },
-              {
-                "Vertex": {
-                  "Position": "64.00027,-2208.754,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
-              },
-              {
-                "Vertex": {
-                  "Position": "18.8637,-2208.754,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 4
-              },
-              {
-                "Vertex": {
-                  "Position": "18.8637,-2208.754,266.7962",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,-2"
-                }
-              }
-            ],
-            "Indices": [
-              0,
-              2,
-              1,
-              2,
-              0,
-              3,
-              4,
-              6,
-              5,
-              6,
-              4,
-              7,
-              8,
-              10,
-              9,
-              10,
-              8,
-              11,
-              12,
-              14,
-              13,
-              14,
-              12,
-              15,
-              16,
-              18,
-              17,
-              18,
-              16,
-              19,
-              20,
-              22,
-              21,
-              22,
-              20,
-              23
-            ],
-            "Parts": [
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {},
-              {}
-            ],
-            "Selection": [],
-            "Mesh": {
-              "IsValid": true,
-              "HasIndexBuffer": true,
-              "IndexCount": 36,
-              "HasVertexBuffer": true,
-              "VertexCount": 24
-            }
-          }
-        },
-        {
-          "__type": "ModelComponent",
-          "__enabled": true,
-          "BodyGroups": 18446744073709551615,
-          "MaterialOverride": null,
-          "Model": "sbox_procedural_model.vmdl",
-          "ShouldCastShadows": true,
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
       "Id": "9ba367d1-7441-47ca-8195-c4d20502489d",
       "Name": "Object",
       "Enabled": true,
@@ -2116,241 +166,193 @@
       ]
     },
     {
-      "Id": "57a18f45-0fdb-40e0-b84f-b9ea04e20f03",
-      "Name": "Object",
+      "Id": "a8a824fb-985e-40b9-8d3b-50f20f70e7f8",
+      "Name": "Floor",
       "Enabled": true,
-      "Position": "-294.6503,818.5702,-0.00001756252",
+      "Position": "0,0,-133.995",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
-      "Tags": "",
+      "Tags": "solid",
       "Components": [
         {
           "__type": "EditableMeshComponent",
           "__enabled": true,
           "Mesh": {
-            "Positions": [
-              "-64,-64,83.97079",
-              "-64,64,83.97079",
-              "64,64,83.97079",
-              "64,-64,83.97079",
-              "-64,-64,-64",
-              "-64,64,-64",
-              "64,64,-64",
-              "64,-64,-64"
+            "DistinctPositions": [
+              "-1195.32,-1729.454,73.26009",
+              "-1195.32,1645.747,73.26009",
+              "619.116,1645.747,73.26009",
+              "619.116,-1729.454,73.26009",
+              "-1195.32,-1729.454,-64",
+              "-1195.32,1645.747,-64",
+              "619.116,1645.747,-64",
+              "619.116,-1729.454,-64"
             ],
             "Vertexes": [
               {
-                "Vertex": {
-                  "Position": "-64,-64,83.97079",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                }
+                "Position": "-1195.32,-1729.454,73.26009",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,-2"
               },
               {
-                "Vertex": {
-                  "Position": "-64,64,83.97079",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 1
+                "Position": "-1195.32,1645.747,73.26009",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 1
               },
               {
-                "Vertex": {
-                  "Position": "64,64,83.97079",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 2
+                "Position": "619.116,1645.747,73.26009",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 2
               },
               {
-                "Vertex": {
-                  "Position": "64,-64,83.97079",
-                  "Normal": "0,0,1",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
+                "Position": "619.116,-1729.454,73.26009",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 3
               },
               {
-                "Vertex": {
-                  "Position": "64,-64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
+                "Position": "619.116,-1729.454,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 7
               },
               {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
+                "Position": "619.116,1645.747,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 6
               },
               {
-                "Vertex": {
-                  "Position": "-64,64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 5
+                "Position": "-1195.32,1645.747,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 5
               },
               {
-                "Vertex": {
-                  "Position": "-64,-64,-64",
-                  "Normal": "0,0,-1",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 4
+                "Position": "-1195.32,-1729.454,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 4
               },
               {
-                "Vertex": {
-                  "Position": "-64,-64,83.97079",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,-2"
-                }
+                "Position": "-1195.32,-1729.454,73.26009",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
               },
               {
-                "Vertex": {
-                  "Position": "-64,-64,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 4
+                "Position": "-1195.32,-1729.454,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 4
               },
               {
-                "Vertex": {
-                  "Position": "-64,64,-64",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 5
+                "Position": "-1195.32,1645.747,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 5
               },
               {
-                "Vertex": {
-                  "Position": "-64,64,83.97079",
-                  "Normal": "-1,0,0",
-                  "Tangent": "0,1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 1
+                "Position": "-1195.32,1645.747,73.26009",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 1
               },
               {
-                "Vertex": {
-                  "Position": "-64,64,83.97079",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 1
+                "Position": "-1195.32,1645.747,73.26009",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 1
               },
               {
-                "Vertex": {
-                  "Position": "-64,64,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 5
+                "Position": "-1195.32,1645.747,-64",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 5
               },
               {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 6
+                "Position": "619.116,1645.747,-64",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 6
               },
               {
-                "Vertex": {
-                  "Position": "64,64,83.97079",
-                  "Normal": "-0,1,0",
-                  "Tangent": "1,0,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 2
+                "Position": "619.116,1645.747,73.26009",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 2
               },
               {
-                "Vertex": {
-                  "Position": "64,64,83.97079",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 2
+                "Position": "619.116,1645.747,73.26009",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 2
               },
               {
-                "Vertex": {
-                  "Position": "64,64,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 6
+                "Position": "619.116,1645.747,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 6
               },
               {
-                "Vertex": {
-                  "Position": "64,-64,-64",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 7
+                "Position": "619.116,-1729.454,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 7
               },
               {
-                "Vertex": {
-                  "Position": "64,-64,83.97079",
-                  "Normal": "1,0,0",
-                  "Tangent": "0,-1,0",
-                  "Texcoord": "2,-2"
-                },
-                "PositionIndex": 3
+                "Position": "619.116,-1729.454,73.26009",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 3
               },
               {
-                "Vertex": {
-                  "Position": "64,-64,83.97079",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,-2"
-                },
-                "PositionIndex": 3
+                "Position": "619.116,-1729.454,73.26009",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 3
               },
               {
-                "Vertex": {
-                  "Position": "64,-64,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "-2,2"
-                },
-                "PositionIndex": 7
+                "Position": "619.116,-1729.454,-64",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 7
               },
               {
-                "Vertex": {
-                  "Position": "-64,-64,-64",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,2"
-                },
-                "PositionIndex": 4
+                "Position": "-1195.32,-1729.454,-64",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 4
               },
               {
-                "Vertex": {
-                  "Position": "-64,-64,83.97079",
-                  "Normal": "-0,-1,-0",
-                  "Tangent": "-1,0,0",
-                  "Texcoord": "2,-2"
-                }
+                "Position": "-1195.32,-1729.454,73.26009",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "2,-2"
               }
             ],
             "Indices": [
@@ -2433,7 +435,284 @@
           "__type": "ModelComponent",
           "__enabled": true,
           "BodyGroups": 18446744073709551615,
-          "MaterialOverride": "materials/dev/dev_measuregeneric01.vmat",
+          "MaterialOverride": null,
+          "Model": "sbox_procedural_model.vmdl",
+          "ShouldCastShadows": true,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "86891265-8373-432d-95ca-a30136e7eb04",
+      "Name": "Object",
+      "Enabled": true,
+      "Position": "176.5583,-248.1846,0.000117221",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "",
+      "Components": [
+        {
+          "__type": "EditableMeshComponent",
+          "__enabled": true,
+          "Mesh": {
+            "DistinctPositions": [
+              "-64,-64,64",
+              "-64,64,64",
+              "64,64,64",
+              "64,-64,64",
+              "-64,-64,-64",
+              "-64,64,-64",
+              "64,64,-64",
+              "64,-64,-64"
+            ],
+            "Vertexes": [
+              {
+                "Position": "-64,-64,64",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-64,64,64",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 1
+              },
+              {
+                "Position": "64,64,64",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 2
+              },
+              {
+                "Position": "64,-64,64",
+                "Normal": "0,0,1",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 3
+              },
+              {
+                "Position": "64,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 7
+              },
+              {
+                "Position": "64,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 6
+              },
+              {
+                "Position": "-64,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 5
+              },
+              {
+                "Position": "-64,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 4
+              },
+              {
+                "Position": "-64,-64,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-64,-64,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 4
+              },
+              {
+                "Position": "-64,64,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 5
+              },
+              {
+                "Position": "-64,64,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 1
+              },
+              {
+                "Position": "-64,64,64",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 1
+              },
+              {
+                "Position": "-64,64,-64",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 5
+              },
+              {
+                "Position": "64,64,-64",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 6
+              },
+              {
+                "Position": "64,64,64",
+                "Normal": "-0,1,0",
+                "Tangent": "1,0,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 2
+              },
+              {
+                "Position": "64,64,64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 2
+              },
+              {
+                "Position": "64,64,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 6
+              },
+              {
+                "Position": "64,-64,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 7
+              },
+              {
+                "Position": "64,-64,64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 3
+              },
+              {
+                "Position": "64,-64,64",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 3
+              },
+              {
+                "Position": "64,-64,-64",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 7
+              },
+              {
+                "Position": "-64,-64,-64",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 4
+              },
+              {
+                "Position": "-64,-64,64",
+                "Normal": "-0,-1,-0",
+                "Tangent": "-1,0,0",
+                "Texcoord": "2,-2"
+              }
+            ],
+            "Indices": [
+              0,
+              2,
+              1,
+              2,
+              0,
+              3,
+              4,
+              6,
+              5,
+              6,
+              4,
+              7,
+              8,
+              10,
+              9,
+              10,
+              8,
+              11,
+              12,
+              14,
+              13,
+              14,
+              12,
+              15,
+              16,
+              18,
+              17,
+              18,
+              16,
+              19,
+              20,
+              22,
+              21,
+              22,
+              20,
+              23
+            ],
+            "Parts": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            "Selection": [],
+            "Mesh": {
+              "IsValid": true,
+              "HasIndexBuffer": true,
+              "IndexCount": 36,
+              "HasVertexBuffer": true,
+              "VertexCount": 24
+            }
+          }
+        },
+        {
+          "__type": "ModelComponent",
+          "__enabled": true,
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": null,
           "Model": "sbox_procedural_model.vmdl",
           "ShouldCastShadows": true,
           "Tint": "1,1,1,1"
