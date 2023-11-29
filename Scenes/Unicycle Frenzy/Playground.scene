@@ -443,52 +443,104 @@
       ]
     },
     {
-      "Id": "86891265-8373-432d-95ca-a30136e7eb04",
+      "Id": "83fd5ee6-e552-4eea-b42a-acf01bebffc8",
       "Name": "Object",
       "Enabled": true,
-      "Position": "176.5583,-248.1846,0.000117221",
+      "Position": "0,0,0",
       "Rotation": "0,0,0,1",
       "Scale": "1,1,1",
-      "Tags": "",
+      "Tags": "solid",
       "Components": [
         {
           "__type": "EditableMeshComponent",
           "__enabled": true,
           "Mesh": {
             "DistinctPositions": [
-              "-64,-64,64",
+              "-53.1695,-75.41647,64.00007",
               "-64,64,64",
               "64,64,64",
               "64,-64,64",
               "-64,-64,-64",
               "-64,64,-64",
               "64,64,-64",
-              "64,-64,-64"
+              "64,-64,-64",
+              "-96.04498,64,-64",
+              "-128,-64,-64",
+              "-128,-64,64",
+              "-96.04498,64,64",
+              "-64,-128,-64",
+              "-64,-106.3305,64",
+              "-128,-106.3305,64",
+              "-128,-128,-64",
+              "-192,-64,77.31317",
+              "-192,-64,-64",
+              "-192,-128,-64",
+              "-192,-128,64",
+              "-256,-64,77.31317",
+              "-256,-64,-64",
+              "-256,-128,-64",
+              "-256,-128,64",
+              "-192,0,77.31317",
+              "-192,0,-64",
+              "-256,0,-64",
+              "-256,0,77.31317",
+              "-256,-64,206.3614",
+              "-192,-64,206.3614",
+              "-192,0,206.3614",
+              "-256,0,206.3614",
+              "-256,-64,270.3615",
+              "-192,-64,270.3615",
+              "-192,0,270.3615",
+              "-256,0,270.3615",
+              "-320,0,206.3614",
+              "-320,-64,206.3614",
+              "-320,-64,270.3615",
+              "-320,0,270.3615",
+              "-384,0,206.3614",
+              "-384,-64,206.3614",
+              "-384,-64,270.3615",
+              "-384,0,270.3615",
+              "-320,0,-68.11917",
+              "-320,-64,-68.11917",
+              "-384,-64,-68.11917",
+              "-384,0,-68.11917",
+              "-128,-106.3305,128",
+              "-64,-106.3305,128",
+              "-53.1695,-75.41647,128.0001",
+              "-128,-64,128",
+              "-64,128,64",
+              "-64,128,-64",
+              "-96.04498,128,-64",
+              "-96.04498,128,64",
+              "291.2987,-64,-64",
+              "291.2987,64,-64",
+              "291.2987,64,-59.95388",
+              "291.2987,-64,-59.95388"
             ],
             "Vertexes": [
               {
-                "Position": "-64,-64,64",
-                "Normal": "0,0,1",
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "0.0000002930138,0.0000002462569,1",
                 "Tangent": "1,0,0",
                 "Texcoord": "-2,-2"
               },
               {
                 "Position": "-64,64,64",
-                "Normal": "0,0,1",
+                "Normal": "0,0.0000004925139,1",
                 "Tangent": "1,0,0",
                 "Texcoord": "-2,2",
                 "DistinctIndex": 1
               },
               {
                 "Position": "64,64,64",
-                "Normal": "0,0,1",
+                "Normal": "0.0000002930138,0.0000002462569,1",
                 "Tangent": "1,0,0",
                 "Texcoord": "2,2",
                 "DistinctIndex": 2
               },
               {
                 "Position": "64,-64,64",
-                "Normal": "0,0,1",
+                "Normal": "0.0000005860275,0,1",
                 "Tangent": "1,0,0",
                 "Texcoord": "2,-2",
                 "DistinctIndex": 3
@@ -522,56 +574,56 @@
                 "DistinctIndex": 4
               },
               {
-                "Position": "-64,-64,64",
-                "Normal": "-1,0,0",
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "-0.9983549,-0.03878918,0.04222522",
                 "Tangent": "0,1,0",
                 "Texcoord": "-2,-2"
               },
               {
                 "Position": "-64,-64,-64",
-                "Normal": "-1,0,0",
+                "Normal": "-0.9964394,0,0.08431196",
                 "Tangent": "0,1,0",
                 "Texcoord": "-2,2",
                 "DistinctIndex": 4
               },
               {
                 "Position": "-64,64,-64",
-                "Normal": "-1,0,0",
+                "Normal": "-0.9983549,-0.03878918,0.04222522",
                 "Tangent": "0,1,0",
                 "Texcoord": "2,2",
                 "DistinctIndex": 5
               },
               {
                 "Position": "-64,64,64",
-                "Normal": "-1,0,0",
+                "Normal": "-0.9969962,-0.07745114,0",
                 "Tangent": "0,1,0",
                 "Texcoord": "2,-2",
                 "DistinctIndex": 1
               },
               {
                 "Position": "-64,64,64",
-                "Normal": "-0,1,0",
+                "Normal": "0,1,0",
                 "Tangent": "1,0,0",
                 "Texcoord": "-2,-2",
                 "DistinctIndex": 1
               },
               {
                 "Position": "-64,64,-64",
-                "Normal": "-0,1,0",
+                "Normal": "0,1,0",
                 "Tangent": "1,0,0",
                 "Texcoord": "-2,2",
                 "DistinctIndex": 5
               },
               {
                 "Position": "64,64,-64",
-                "Normal": "-0,1,0",
+                "Normal": "0,1,0",
                 "Tangent": "1,0,0",
                 "Texcoord": "2,2",
                 "DistinctIndex": 6
               },
               {
                 "Position": "64,64,64",
-                "Normal": "-0,1,0",
+                "Normal": "0,1,0",
                 "Tangent": "1,0,0",
                 "Texcoord": "2,-2",
                 "DistinctIndex": 2
@@ -606,30 +658,1844 @@
               },
               {
                 "Position": "64,-64,64",
-                "Normal": "-0,-1,-0",
+                "Normal": "0.04837502,-0.9976571,-0.04837502",
                 "Tangent": "-1,0,0",
                 "Texcoord": "-2,-2",
                 "DistinctIndex": 3
               },
               {
                 "Position": "64,-64,-64",
-                "Normal": "-0,-1,-0",
+                "Normal": "0,-1,0",
                 "Tangent": "-1,0,0",
                 "Texcoord": "-2,2",
                 "DistinctIndex": 7
               },
               {
                 "Position": "-64,-64,-64",
-                "Normal": "-0,-1,-0",
+                "Normal": "0.04837502,-0.9976571,-0.04837502",
                 "Tangent": "-1,0,0",
                 "Texcoord": "2,2",
                 "DistinctIndex": 4
               },
               {
-                "Position": "-64,-64,64",
-                "Normal": "-0,-1,-0",
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "0.09652337,-0.9906394,-0.09652337",
                 "Tangent": "-1,0,0",
                 "Texcoord": "2,-2"
+              },
+              {
+                "Position": "-96.04498,64,-64",
+                "Normal": "-0.9702227,0.2422147,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 8
+              },
+              {
+                "Position": "-128,-64,-64",
+                "Normal": "-0.9702227,0.2422147,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 9
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "-0.9702227,0.2422147,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-96.04498,64,64",
+                "Normal": "-0.9702227,0.2422147,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 11
+              },
+              {
+                "Position": "-64,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 5
+              },
+              {
+                "Position": "-64,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 4
+              },
+              {
+                "Position": "-128,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 9
+              },
+              {
+                "Position": "-96.04498,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 8
+              },
+              {
+                "Position": "-64,-64,-64",
+                "Normal": "-0.07546517,-0.9964343,-0.03773258",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 4
+              },
+              {
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "-0.1503922,-0.9857625,-0.07519608",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "-0.07546517,-0.9964343,-0.03773258",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-128,-64,-64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 9
+              },
+              {
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "-0.0000004419672,0.0000003565934,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-64,64,64",
+                "Normal": "0,0.0000004925139,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 1
+              },
+              {
+                "Position": "-96.04498,64,64",
+                "Normal": "-0.0000004419672,0.0000003565934,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 11
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "-0.0000008839343,0.0000002206729,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-64,64,64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 1
+              },
+              {
+                "Position": "-64,64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 5
+              },
+              {
+                "Position": "-96.04498,64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 8
+              },
+              {
+                "Position": "-96.04498,64,64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 11
+              },
+              {
+                "Position": "-64,-128,-64",
+                "Normal": "0,-0.9859709,0.1669178",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 12
+              },
+              {
+                "Position": "-64,-106.3305,64",
+                "Normal": "0,-0.9859709,0.1669178",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 13
+              },
+              {
+                "Position": "-128,-106.3305,64",
+                "Normal": "0,-0.9859709,0.1669178",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 14
+              },
+              {
+                "Position": "-128,-128,-64",
+                "Normal": "0,-0.9859709,0.1669178",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 15
+              },
+              {
+                "Position": "-64,-64,-64",
+                "Normal": "0.9844201,-0.1669404,-0.05520838",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 4
+              },
+              {
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "0.9381659,-0.328679,-0.1086965",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-64,-106.3305,64",
+                "Normal": "0.9844201,-0.1669404,-0.05520838",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 13
+              },
+              {
+                "Position": "-64,-128,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 12
+              },
+              {
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "-0.0000004588006,-0.000001110572,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "-0.0000009176013,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-128,-106.3305,64",
+                "Normal": "-0.0000004588006,-0.000001110572,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 14
+              },
+              {
+                "Position": "-64,-106.3305,64",
+                "Normal": "0,-0.000002221144,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 13
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-128,-64,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 9
+              },
+              {
+                "Position": "-128,-128,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 15
+              },
+              {
+                "Position": "-128,-106.3305,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 14
+              },
+              {
+                "Position": "-128,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 9
+              },
+              {
+                "Position": "-64,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 4
+              },
+              {
+                "Position": "-64,-128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 12
+              },
+              {
+                "Position": "-128,-128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 15
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-192,-64,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 17
+              },
+              {
+                "Position": "-192,-128,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 18
+              },
+              {
+                "Position": "-192,-128,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 19
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-128,-64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 9
+              },
+              {
+                "Position": "-192,-64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 17
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-128,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 9
+              },
+              {
+                "Position": "-128,-128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 15
+              },
+              {
+                "Position": "-192,-128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 18
+              },
+              {
+                "Position": "-192,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 17
+              },
+              {
+                "Position": "-128,-128,-64",
+                "Normal": "0.1609559,-0.983675,0.08047795",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 15
+              },
+              {
+                "Position": "-128,-106.3305,64",
+                "Normal": "0.3166566,-0.9352331,0.1583283",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 14
+              },
+              {
+                "Position": "-192,-128,64",
+                "Normal": "0.1609559,-0.983675,0.08047795",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 19
+              },
+              {
+                "Position": "-192,-128,-64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 18
+              },
+              {
+                "Position": "-128,-106.3305,64",
+                "Normal": "0.1372498,-0.1023519,0.9852343",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 14
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "0.2036586,0,0.979042",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "0.1372498,-0.1023519,0.9852343",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-192,-128,64",
+                "Normal": "0.06879257,-0.2031762,0.9767226",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 19
+              },
+              {
+                "Position": "-256,-64,77.31317",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 20
+              },
+              {
+                "Position": "-256,-64,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 21
+              },
+              {
+                "Position": "-256,-128,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 22
+              },
+              {
+                "Position": "-256,-128,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 23
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-192,-64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 17
+              },
+              {
+                "Position": "-256,-64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 21
+              },
+              {
+                "Position": "-256,-64,77.31317",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 20
+              },
+              {
+                "Position": "-192,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 17
+              },
+              {
+                "Position": "-192,-128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 18
+              },
+              {
+                "Position": "-256,-128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 22
+              },
+              {
+                "Position": "-256,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 21
+              },
+              {
+                "Position": "-192,-128,-64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 18
+              },
+              {
+                "Position": "-192,-128,64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 19
+              },
+              {
+                "Position": "-256,-128,64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 23
+              },
+              {
+                "Position": "-256,-128,-64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 22
+              },
+              {
+                "Position": "-192,-128,64",
+                "Normal": "0,-0.2036587,0.979042",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 19
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "0,-0.2036587,0.979042",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-256,-64,77.31317",
+                "Normal": "0,-0.2036587,0.979042",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 20
+              },
+              {
+                "Position": "-256,-128,64",
+                "Normal": "0,-0.2036587,0.979042",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 23
+              },
+              {
+                "Position": "-192,0,77.31317",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 24
+              },
+              {
+                "Position": "-192,0,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 25
+              },
+              {
+                "Position": "-256,0,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 26
+              },
+              {
+                "Position": "-256,0,77.31317",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 27
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-192,-64,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 17
+              },
+              {
+                "Position": "-192,0,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 25
+              },
+              {
+                "Position": "-192,0,77.31317",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 24
+              },
+              {
+                "Position": "-192,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 17
+              },
+              {
+                "Position": "-256,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 21
+              },
+              {
+                "Position": "-256,0,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 26
+              },
+              {
+                "Position": "-192,0,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 25
+              },
+              {
+                "Position": "-256,-64,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 21
+              },
+              {
+                "Position": "-256,-64,77.31317",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 20
+              },
+              {
+                "Position": "-256,0,77.31317",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 27
+              },
+              {
+                "Position": "-256,0,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 26
+              },
+              {
+                "Position": "-256,-64,77.31317",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 20
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-192,0,77.31317",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 24
+              },
+              {
+                "Position": "-256,0,77.31317",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 27
+              },
+              {
+                "Position": "-256,-64,206.3614",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 28
+              },
+              {
+                "Position": "-192,-64,206.3614",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 29
+              },
+              {
+                "Position": "-192,0,206.3614",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 30
+              },
+              {
+                "Position": "-256,0,206.3614",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 31
+              },
+              {
+                "Position": "-256,-64,77.31317",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 20
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-192,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 29
+              },
+              {
+                "Position": "-256,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 28
+              },
+              {
+                "Position": "-192,-64,77.31317",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 16
+              },
+              {
+                "Position": "-192,0,77.31317",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 24
+              },
+              {
+                "Position": "-192,0,206.3614",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 30
+              },
+              {
+                "Position": "-192,-64,206.3614",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 29
+              },
+              {
+                "Position": "-192,0,77.31317",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 24
+              },
+              {
+                "Position": "-256,0,77.31317",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 27
+              },
+              {
+                "Position": "-256,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 31
+              },
+              {
+                "Position": "-192,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 30
+              },
+              {
+                "Position": "-256,0,77.31317",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 27
+              },
+              {
+                "Position": "-256,-64,77.31317",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 20
+              },
+              {
+                "Position": "-256,-64,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 28
+              },
+              {
+                "Position": "-256,0,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 31
+              },
+              {
+                "Position": "-256,-64,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 32
+              },
+              {
+                "Position": "-192,-64,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 33
+              },
+              {
+                "Position": "-192,0,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 34
+              },
+              {
+                "Position": "-256,0,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 35
+              },
+              {
+                "Position": "-256,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 28
+              },
+              {
+                "Position": "-192,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 29
+              },
+              {
+                "Position": "-192,-64,270.3615",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 33
+              },
+              {
+                "Position": "-256,-64,270.3615",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 32
+              },
+              {
+                "Position": "-192,-64,206.3614",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 29
+              },
+              {
+                "Position": "-192,0,206.3614",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 30
+              },
+              {
+                "Position": "-192,0,270.3615",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 34
+              },
+              {
+                "Position": "-192,-64,270.3615",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 33
+              },
+              {
+                "Position": "-192,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 30
+              },
+              {
+                "Position": "-256,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 31
+              },
+              {
+                "Position": "-256,0,270.3615",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 35
+              },
+              {
+                "Position": "-192,0,270.3615",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 34
+              },
+              {
+                "Position": "-256,0,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 31
+              },
+              {
+                "Position": "-256,-64,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 28
+              },
+              {
+                "Position": "-256,-64,270.3615",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 32
+              },
+              {
+                "Position": "-256,0,270.3615",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 35
+              },
+              {
+                "Position": "-320,0,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 36
+              },
+              {
+                "Position": "-320,-64,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 37
+              },
+              {
+                "Position": "-320,-64,270.3615",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 38
+              },
+              {
+                "Position": "-320,0,270.3615",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 39
+              },
+              {
+                "Position": "-256,0,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 31
+              },
+              {
+                "Position": "-256,-64,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 28
+              },
+              {
+                "Position": "-320,-64,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 37
+              },
+              {
+                "Position": "-320,0,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 36
+              },
+              {
+                "Position": "-256,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 28
+              },
+              {
+                "Position": "-256,-64,270.3615",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 32
+              },
+              {
+                "Position": "-320,-64,270.3615",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 38
+              },
+              {
+                "Position": "-320,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 37
+              },
+              {
+                "Position": "-256,-64,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 32
+              },
+              {
+                "Position": "-256,0,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 35
+              },
+              {
+                "Position": "-320,0,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 39
+              },
+              {
+                "Position": "-320,-64,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 38
+              },
+              {
+                "Position": "-256,0,270.3615",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 35
+              },
+              {
+                "Position": "-256,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 31
+              },
+              {
+                "Position": "-320,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 36
+              },
+              {
+                "Position": "-320,0,270.3615",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 39
+              },
+              {
+                "Position": "-384,0,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 40
+              },
+              {
+                "Position": "-384,-64,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 41
+              },
+              {
+                "Position": "-384,-64,270.3615",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 42
+              },
+              {
+                "Position": "-384,0,270.3615",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 43
+              },
+              {
+                "Position": "-320,0,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 36
+              },
+              {
+                "Position": "-320,-64,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 37
+              },
+              {
+                "Position": "-384,-64,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 41
+              },
+              {
+                "Position": "-384,0,206.3614",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 40
+              },
+              {
+                "Position": "-320,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 37
+              },
+              {
+                "Position": "-320,-64,270.3615",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 38
+              },
+              {
+                "Position": "-384,-64,270.3615",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 42
+              },
+              {
+                "Position": "-384,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 41
+              },
+              {
+                "Position": "-320,-64,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 38
+              },
+              {
+                "Position": "-320,0,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 39
+              },
+              {
+                "Position": "-384,0,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 43
+              },
+              {
+                "Position": "-384,-64,270.3615",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 42
+              },
+              {
+                "Position": "-320,0,270.3615",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 39
+              },
+              {
+                "Position": "-320,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 36
+              },
+              {
+                "Position": "-384,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 40
+              },
+              {
+                "Position": "-384,0,270.3615",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 43
+              },
+              {
+                "Position": "-320,0,-68.11917",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 44
+              },
+              {
+                "Position": "-320,-64,-68.11917",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 45
+              },
+              {
+                "Position": "-384,-64,-68.11917",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 46
+              },
+              {
+                "Position": "-384,0,-68.11917",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 47
+              },
+              {
+                "Position": "-320,0,206.3614",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 36
+              },
+              {
+                "Position": "-320,-64,206.3614",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 37
+              },
+              {
+                "Position": "-320,-64,-68.11917",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 45
+              },
+              {
+                "Position": "-320,0,-68.11917",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 44
+              },
+              {
+                "Position": "-320,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 37
+              },
+              {
+                "Position": "-384,-64,206.3614",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 41
+              },
+              {
+                "Position": "-384,-64,-68.11917",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 46
+              },
+              {
+                "Position": "-320,-64,-68.11917",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 45
+              },
+              {
+                "Position": "-384,-64,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 41
+              },
+              {
+                "Position": "-384,0,206.3614",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 40
+              },
+              {
+                "Position": "-384,0,-68.11917",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 47
+              },
+              {
+                "Position": "-384,-64,-68.11917",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 46
+              },
+              {
+                "Position": "-384,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 40
+              },
+              {
+                "Position": "-320,0,206.3614",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 36
+              },
+              {
+                "Position": "-320,0,-68.11917",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 44
+              },
+              {
+                "Position": "-384,0,-68.11917",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 47
+              },
+              {
+                "Position": "-128,-106.3305,128",
+                "Normal": "-0.0000004078227,-0.0000009871751,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 48
+              },
+              {
+                "Position": "-64,-106.3305,128",
+                "Normal": "0,-0.00000197435,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 49
+              },
+              {
+                "Position": "-53.1695,-75.41647,128.0001",
+                "Normal": "-0.0000004078227,-0.0000009871751,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 50
+              },
+              {
+                "Position": "-128,-64,128",
+                "Normal": "-0.0000008156455,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 51
+              },
+              {
+                "Position": "-128,-106.3305,64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 14
+              },
+              {
+                "Position": "-64,-106.3305,64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 13
+              },
+              {
+                "Position": "-64,-106.3305,128",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 49
+              },
+              {
+                "Position": "-128,-106.3305,128",
+                "Normal": "0,-1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 48
+              },
+              {
+                "Position": "-64,-106.3305,64",
+                "Normal": "0.9437576,-0.3306382,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 13
+              },
+              {
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "0.9437576,-0.3306382,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-53.1695,-75.41647,128.0001",
+                "Normal": "0.9437576,-0.3306382,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 50
+              },
+              {
+                "Position": "-64,-106.3305,128",
+                "Normal": "0.9437576,-0.3306382,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 49
+              },
+              {
+                "Position": "-53.1695,-75.41647,64.00007",
+                "Normal": "0.1508192,0.9885614,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2"
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "0.1508192,0.9885614,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-128,-64,128",
+                "Normal": "0.1508192,0.9885614,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 51
+              },
+              {
+                "Position": "-53.1695,-75.41647,128.0001",
+                "Normal": "0.1508192,0.9885614,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 50
+              },
+              {
+                "Position": "-128,-64,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 10
+              },
+              {
+                "Position": "-128,-106.3305,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 14
+              },
+              {
+                "Position": "-128,-106.3305,128",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 48
+              },
+              {
+                "Position": "-128,-64,128",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 51
+              },
+              {
+                "Position": "-64,128,64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 52
+              },
+              {
+                "Position": "-64,128,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 53
+              },
+              {
+                "Position": "-96.04498,128,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 54
+              },
+              {
+                "Position": "-96.04498,128,64",
+                "Normal": "0,1,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 55
+              },
+              {
+                "Position": "-64,64,64",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 1
+              },
+              {
+                "Position": "-64,64,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 5
+              },
+              {
+                "Position": "-64,128,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 53
+              },
+              {
+                "Position": "-64,128,64",
+                "Normal": "1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 52
+              },
+              {
+                "Position": "-64,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 5
+              },
+              {
+                "Position": "-96.04498,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 8
+              },
+              {
+                "Position": "-96.04498,128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 54
+              },
+              {
+                "Position": "-64,128,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 53
+              },
+              {
+                "Position": "-96.04498,64,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 8
+              },
+              {
+                "Position": "-96.04498,64,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 11
+              },
+              {
+                "Position": "-96.04498,128,64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 55
+              },
+              {
+                "Position": "-96.04498,128,-64",
+                "Normal": "-1,0,0",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 54
+              },
+              {
+                "Position": "-96.04498,64,64",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 11
+              },
+              {
+                "Position": "-64,64,64",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 1
+              },
+              {
+                "Position": "-64,128,64",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 52
+              },
+              {
+                "Position": "-96.04498,128,64",
+                "Normal": "0,0,1",
+                "Tangent": "0,1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 55
+              },
+              {
+                "Position": "291.2987,-64,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 56
+              },
+              {
+                "Position": "291.2987,64,-64",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 57
+              },
+              {
+                "Position": "291.2987,64,-59.95388",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 58
+              },
+              {
+                "Position": "291.2987,-64,-59.95388",
+                "Normal": "1,0,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 59
+              },
+              {
+                "Position": "64,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 7
+              },
+              {
+                "Position": "64,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 6
+              },
+              {
+                "Position": "291.2987,64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 57
+              },
+              {
+                "Position": "291.2987,-64,-64",
+                "Normal": "0,0,-1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 56
+              },
+              {
+                "Position": "64,64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 6
+              },
+              {
+                "Position": "64,64,64",
+                "Normal": "0,1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 2
+              },
+              {
+                "Position": "291.2987,64,-59.95388",
+                "Normal": "0,1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 58
+              },
+              {
+                "Position": "291.2987,64,-64",
+                "Normal": "0,1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,2",
+                "DistinctIndex": 57
+              },
+              {
+                "Position": "64,64,64",
+                "Normal": "0,0,1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 2
+              },
+              {
+                "Position": "64,-64,64",
+                "Normal": "0,0,1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 3
+              },
+              {
+                "Position": "291.2987,-64,-59.95388",
+                "Normal": "0,0,1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 59
+              },
+              {
+                "Position": "291.2987,64,-59.95388",
+                "Normal": "0,0,1",
+                "Tangent": "0,-1,0",
+                "Texcoord": "-2,-2",
+                "DistinctIndex": 58
+              },
+              {
+                "Position": "64,-64,64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 3
+              },
+              {
+                "Position": "64,-64,-64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 7
+              },
+              {
+                "Position": "291.2987,-64,-64",
+                "Normal": "0,-1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,2",
+                "DistinctIndex": 56
+              },
+              {
+                "Position": "291.2987,-64,-59.95388",
+                "Normal": "0,-1,0",
+                "Tangent": "0,-1,0",
+                "Texcoord": "2,-2",
+                "DistinctIndex": 59
               }
             ],
             "Indices": [
@@ -668,7 +2534,397 @@
               21,
               22,
               20,
-              23
+              23,
+              24,
+              25,
+              26,
+              26,
+              27,
+              24,
+              28,
+              29,
+              30,
+              30,
+              31,
+              28,
+              32,
+              33,
+              34,
+              34,
+              35,
+              32,
+              36,
+              37,
+              38,
+              38,
+              39,
+              36,
+              40,
+              41,
+              42,
+              42,
+              43,
+              40,
+              44,
+              45,
+              46,
+              46,
+              47,
+              44,
+              48,
+              49,
+              50,
+              50,
+              51,
+              48,
+              52,
+              53,
+              54,
+              54,
+              55,
+              52,
+              56,
+              57,
+              58,
+              58,
+              59,
+              56,
+              60,
+              61,
+              62,
+              62,
+              63,
+              60,
+              64,
+              65,
+              66,
+              66,
+              67,
+              64,
+              68,
+              69,
+              70,
+              70,
+              71,
+              68,
+              72,
+              73,
+              74,
+              74,
+              75,
+              72,
+              76,
+              77,
+              78,
+              78,
+              79,
+              76,
+              80,
+              81,
+              82,
+              82,
+              83,
+              80,
+              84,
+              85,
+              86,
+              86,
+              87,
+              84,
+              88,
+              89,
+              90,
+              90,
+              91,
+              88,
+              92,
+              93,
+              94,
+              94,
+              95,
+              92,
+              96,
+              97,
+              98,
+              98,
+              99,
+              96,
+              100,
+              101,
+              102,
+              102,
+              103,
+              100,
+              104,
+              105,
+              106,
+              106,
+              107,
+              104,
+              108,
+              109,
+              110,
+              110,
+              111,
+              108,
+              112,
+              113,
+              114,
+              114,
+              115,
+              112,
+              116,
+              117,
+              118,
+              118,
+              119,
+              116,
+              120,
+              121,
+              122,
+              122,
+              123,
+              120,
+              124,
+              125,
+              126,
+              126,
+              127,
+              124,
+              128,
+              129,
+              130,
+              130,
+              131,
+              128,
+              132,
+              133,
+              134,
+              134,
+              135,
+              132,
+              136,
+              137,
+              138,
+              138,
+              139,
+              136,
+              140,
+              141,
+              142,
+              142,
+              143,
+              140,
+              144,
+              145,
+              146,
+              146,
+              147,
+              144,
+              148,
+              149,
+              150,
+              150,
+              151,
+              148,
+              152,
+              153,
+              154,
+              154,
+              155,
+              152,
+              156,
+              157,
+              158,
+              158,
+              159,
+              156,
+              160,
+              161,
+              162,
+              162,
+              163,
+              160,
+              164,
+              165,
+              166,
+              166,
+              167,
+              164,
+              168,
+              169,
+              170,
+              170,
+              171,
+              168,
+              172,
+              173,
+              174,
+              174,
+              175,
+              172,
+              176,
+              177,
+              178,
+              178,
+              179,
+              176,
+              180,
+              181,
+              182,
+              182,
+              183,
+              180,
+              184,
+              185,
+              186,
+              186,
+              187,
+              184,
+              188,
+              189,
+              190,
+              190,
+              191,
+              188,
+              192,
+              193,
+              194,
+              194,
+              195,
+              192,
+              196,
+              197,
+              198,
+              198,
+              199,
+              196,
+              200,
+              201,
+              202,
+              202,
+              203,
+              200,
+              204,
+              205,
+              206,
+              206,
+              207,
+              204,
+              208,
+              209,
+              210,
+              210,
+              211,
+              208,
+              212,
+              213,
+              214,
+              214,
+              215,
+              212,
+              216,
+              217,
+              218,
+              218,
+              219,
+              216,
+              220,
+              221,
+              222,
+              222,
+              223,
+              220,
+              224,
+              225,
+              226,
+              226,
+              227,
+              224,
+              228,
+              229,
+              230,
+              230,
+              231,
+              228,
+              232,
+              233,
+              234,
+              234,
+              235,
+              232,
+              236,
+              237,
+              238,
+              238,
+              239,
+              236,
+              240,
+              241,
+              242,
+              242,
+              243,
+              240,
+              244,
+              245,
+              246,
+              246,
+              247,
+              244,
+              248,
+              249,
+              250,
+              250,
+              251,
+              248,
+              252,
+              253,
+              254,
+              254,
+              255,
+              252,
+              256,
+              257,
+              258,
+              258,
+              259,
+              256,
+              260,
+              261,
+              262,
+              262,
+              263,
+              260,
+              264,
+              265,
+              266,
+              266,
+              267,
+              264,
+              268,
+              269,
+              270,
+              270,
+              271,
+              268,
+              272,
+              273,
+              274,
+              274,
+              275,
+              272,
+              276,
+              277,
+              278,
+              278,
+              279,
+              276,
+              280,
+              281,
+              282,
+              282,
+              283,
+              280
             ],
             "Parts": [
               {},
@@ -696,15 +2952,238 @@
               {},
               {},
               {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
               {}
             ],
-            "Selection": [],
+            "Selection": [
+              {}
+            ],
             "Mesh": {
               "IsValid": true,
               "HasIndexBuffer": true,
-              "IndexCount": 36,
+              "IndexCount": 426,
               "HasVertexBuffer": true,
-              "VertexCount": 24
+              "VertexCount": 284
             }
           }
         },

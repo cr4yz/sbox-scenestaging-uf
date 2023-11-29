@@ -1,6 +1,7 @@
 ﻿
 using Sandbox;
 using System.Collections.Generic;
+using static Sandbox.ParticleSnapshot;
 
 public class EditableMesh
 {
@@ -72,10 +73,142 @@ public class EditableMesh
 		for ( int i = 0; i < originalVerts.Count; i++ )
 		{
 			int next = (i + 1) % originalVerts.Count;
-			AddFaceIndices( originalVerts[i], originalVerts[next], extrudedVerts[next], extrudedVerts[i] );
+
+			var sideFaceVertices = CreateSideFaceVertices( originalVerts[i], originalVerts[next], extrudedVerts[next], extrudedVerts[i], normal );
+
+			AddFaceIndices( sideFaceVertices[0], sideFaceVertices[1], sideFaceVertices[2], sideFaceVertices[3] );
 		}
 
+		RecalculateNormals();
 		UpdateMeshData();
+	}
+
+	public void RecalculateNormals()
+	{
+		for ( int i = 0; i < Vertexes.Count; i++ )
+		{
+			var v = Vertexes[i];
+			v.Normal = 0;
+			Vertexes[i] = v;
+		}
+
+		for ( int i = 0; i < Indices.Count; i += 3 )
+		{
+			int index1 = Indices[i];
+			int index2 = Indices[i + 1];
+			int index3 = Indices[i + 2];
+
+			SimpleVertex_S vertex1 = Vertexes[index1];
+			SimpleVertex_S vertex2 = Vertexes[index2];
+			SimpleVertex_S vertex3 = Vertexes[index3];
+
+			Vector3 faceNormal = CalculateFaceNormal( vertex1.Position, vertex2.Position, vertex3.Position );
+
+			vertex1.Normal += faceNormal;
+			vertex2.Normal += faceNormal;
+			vertex3.Normal += faceNormal;
+
+			Vertexes[index1] = vertex1;
+			Vertexes[index2] = vertex2;
+			Vertexes[index3] = vertex3;
+		}
+
+		for ( int i = 0; i < Vertexes.Count; i++ )
+		{
+			var v = Vertexes[i];
+			if ( v.Normal == 0 ) continue;
+			v.Normal = v.Normal.Normal;
+			Vertexes[i] = v;
+		}
+
+		Vector3 CalculateFaceNormal( Vector3 v1, Vector3 v2, Vector3 v3 )
+		{
+			Vector3 a = v2 - v1;
+			Vector3 b = v3 - v1;
+			return Vector3.Cross( a, b ).Normal;
+		}
+	}
+
+	public void RecalculateTangents()
+	{
+		for ( int i = 0; i < Vertexes.Count; i++ )
+		{
+			var v = Vertexes[i];
+			v.Tangent = 0;
+			Vertexes[i] = v;
+		}
+
+		for ( int i = 0; i < Indices.Count; i += 3 )
+		{
+			int index1 = Indices[i];
+			int index2 = Indices[i + 1];
+			int index3 = Indices[i + 2];
+
+			SimpleVertex_S vertex1 = Vertexes[index1];
+			SimpleVertex_S vertex2 = Vertexes[index2];
+			SimpleVertex_S vertex3 = Vertexes[index3];
+
+			Vector3 tangent = CalculateTangent( vertex1, vertex2, vertex3 );
+
+			vertex1.Tangent += tangent;
+			vertex2.Tangent += tangent;
+			vertex3.Tangent += tangent;
+
+			Vertexes[index1] = vertex1;
+			Vertexes[index2] = vertex2;
+			Vertexes[index3] = vertex3;
+		}
+
+		for ( int i = 0; i < Vertexes.Count; i++ )
+		{
+			var v = Vertexes[i];
+			if ( v.Tangent == 0 ) continue;
+			v.Tangent = v.Tangent.Normal;
+			Vertexes[i] = v;
+		}
+
+		Vector3 CalculateTangent( SimpleVertex_S v1, SimpleVertex_S v2, SimpleVertex_S v3 )
+		{
+			Vector3 edge1 = v2.Position - v1.Position;
+			Vector3 edge2 = v3.Position - v1.Position;
+
+			Vector2 deltaUV1 = v2.Texcoord - v1.Texcoord;
+			Vector2 deltaUV2 = v3.Texcoord - v1.Texcoord;
+
+			float f = 1.0f / (deltaUV1.x * deltaUV2.y - deltaUV2.x * deltaUV1.y);
+
+			Vector3 tangent = default;
+			tangent.x = f * (deltaUV2.y * edge1.x - deltaUV1.y * edge2.x);
+			tangent.y = f * (deltaUV2.y * edge1.y - deltaUV1.y * edge2.y);
+			tangent.z = f * (deltaUV2.y * edge1.z - deltaUV1.y * edge2.z);
+
+			return tangent;
+		}
+	}
+
+	List<int> CreateSideFaceVertices( int v0, int v1, int v2, int v3, Vector3 faceNormal )
+	{
+		var newVertsIndices = new List<int>();
+
+		int[] vertices = { v0, v1, v2, v3 };
+		foreach ( var index in vertices )
+		{
+			var originalVertex = Vertexes[index];
+
+			var newVertex = new SimpleVertex_S
+			{
+				Position = originalVertex.Position,
+				Normal = originalVertex.Normal,
+				Tangent = originalVertex.Tangent,
+				Texcoord = originalVertex.Texcoord,
+				DistinctIndex = originalVertex.DistinctIndex 
+			};
+
+			Vertexes.Add( newVertex );
+			newVertsIndices.Add( Vertexes.Count - 1 );
+		}
+
+		return newVertsIndices;
 	}
 
 	public Vector3 CalculateCenter( IEnumerable<MeshPart> parts )
@@ -428,10 +561,4 @@ public struct SimpleVertex_S
 			texcoord = vertex.Texcoord
 		};
 	}
-}
-
-public class SimpleVertexWrapper
-{
-	public SimpleVertex_S Vertex { get; set; }
-	public int DistinctIndex { get; set; }
 }
