@@ -67,7 +67,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 			{
 				if ( Gizmo.Control.Position( "position", center, out var newPos, null, 0f ) )
 				{
-					Mesh.TranslateSelection( newPos - center );
+					Mesh.Translate( Mesh.Selection, newPos - center );
 				}
 			}
 		}

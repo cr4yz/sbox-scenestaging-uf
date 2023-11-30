@@ -1,8 +1,6 @@
 ﻿
 using Sandbox;
-using System;
 using System.Collections.Generic;
-using static Sandbox.ParticleSnapshot;
 
 public class EditableMesh
 {
@@ -55,11 +53,6 @@ public class EditableMesh
 		UpdateMeshData();
 
 		OnMeshChanged?.Invoke();
-	}
-
-	public void TranslateSelection( Vector3 translation )
-	{
-		Translate( Selection, translation );
 	}
 
 	public void ExtrudeSelection( float distance )
@@ -550,32 +543,8 @@ public class EditableMesh
 				3, 7, 4, 0,
 		};
 
-		var uAxis = new Vector3[]
-		{
-				Vector3.Forward,
-				Vector3.Left,
-				Vector3.Left,
-				Vector3.Forward,
-				Vector3.Right,
-				Vector3.Backward,
-		};
-
-		var vAxis = new Vector3[]
-		{
-				Vector3.Left,
-				Vector3.Forward,
-				Vector3.Down,
-				Vector3.Down,
-				Vector3.Down,
-				Vector3.Down,
-		};
-
 		for ( var i = 0; i < 6; ++i )
 		{
-			var tangent = uAxis[i];
-			var binormal = vAxis[i];
-			var normal = Vector3.Cross( tangent, binormal );
-
 			for ( var j = 0; j < 4; ++j )
 			{
 				var vertexIndex = faceIndices[(i * 4) + j];
@@ -584,9 +553,6 @@ public class EditableMesh
 				result.Vertexes.Add( new()
 				{
 					Position = pos,
-					Normal = normal,
-					Tangent = tangent,
-					Texcoord = Planar( pos, uAxis[i], vAxis[i] ),
 					DistinctIndex = vertexIndex
 				} );
 			}
@@ -602,15 +568,6 @@ public class EditableMesh
 		result.UpdateMeshData();
 
 		return result;
-	}
-
-	static Vector2 Planar( Vector3 pos, Vector3 uAxis, Vector3 vAxis )
-	{
-		return new Vector2()
-		{
-			x = Vector3.Dot( uAxis, pos ) / 32,
-			y = Vector3.Dot( vAxis, pos ) / 32
-		};
 	}
 
 }
