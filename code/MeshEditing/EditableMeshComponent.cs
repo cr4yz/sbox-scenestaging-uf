@@ -65,7 +65,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 			var center = Mesh.CalculateCenter( Mesh.Selection );
 			using ( Gizmo.Scope( "position", center ) )
 			{
-				if ( Gizmo.Control.Position( "position", center, out var newPos ) )
+				if ( Gizmo.Control.Position( "position", center, out var newPos, null, 0f ) )
 				{
 					Mesh.TranslateSelection( newPos - center );
 				}
@@ -97,7 +97,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 						var posD = Mesh.Vertexes[part.D].Position;
 
 						var center = (posA + posB + posC + posD) / 4;
-						var box = new BBox( center, 5f );
+						var box = new BBox( center, 8f );
 						var end = center + Mesh.Vertexes[part.A].Normal * 20f;
 
 						Gizmo.Draw.Color = Color.White;
@@ -107,12 +107,6 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 						Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.White;
 						Gizmo.Draw.Color = Gizmo.IsSelected ? Color.Green : Gizmo.Draw.Color;
 						Gizmo.Draw.SolidBox( box );
-
-						using ( Gizmo.Hitbox.LineScope() )
-						{
-							Gizmo.Draw.LineThickness = 3f;
-							Gizmo.Draw.Line( center, end );
-						}
 
 						break;
 					case MeshPartTypes.Vertex:

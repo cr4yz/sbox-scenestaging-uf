@@ -17,6 +17,12 @@ public class MeshPartEditor : Widget
 			extrudeButton.Clicked = () => target.Mesh.ExtrudeSelection( 64 );
 		}
 
+		if ( target.Part.Type != MeshPartTypes.Vertex )
+		{
+			var deleteButton = Layout.Add( new Button( "Delete" ) );
+			deleteButton.Clicked = () => target.Mesh.Delete( target.Part );
+		}
+
 		Layout.AddStretchCell( 1 );
 	}
 

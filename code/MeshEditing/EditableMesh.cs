@@ -1,5 +1,6 @@
 ﻿
 using Sandbox;
+using System;
 using System.Collections.Generic;
 using static Sandbox.ParticleSnapshot;
 
@@ -19,11 +20,11 @@ public class EditableMesh
 
 	public Action OnMeshChanged;
 
-	public void TranslateSelection( Vector3 translation )
+	public void Translate( IEnumerable<MeshPart> parts, Vector3 translation )
 	{
 		List<int> distinctPositions = new();
 
-		foreach ( var part in Selection )
+		foreach ( var part in parts )
 		{
 			switch ( part.Type )
 			{
@@ -56,6 +57,11 @@ public class EditableMesh
 		OnMeshChanged?.Invoke();
 	}
 
+	public void TranslateSelection( Vector3 translation )
+	{
+		Translate( Selection, translation );
+	}
+
 	public void ExtrudeSelection( float distance )
 	{
 		var face = Selection.FirstOrDefault( x => x.Type == MeshPartTypes.Face );
@@ -79,7 +85,48 @@ public class EditableMesh
 			AddFaceIndices( sideFaceVertices[0], sideFaceVertices[1], sideFaceVertices[2], sideFaceVertices[3] );
 		}
 
-		RecalculateNormals();
+		Delete( face );
+		UpdateMeshData();
+	}
+
+	public void Delete( MeshPart part )
+	{
+		List<int> vertsToRemove = new();
+
+		switch ( part.Type ) 
+		{
+			case MeshPartTypes.Face:
+				vertsToRemove.Add( part.A );
+				vertsToRemove.Add( part.B );
+				vertsToRemove.Add( part.C );
+				vertsToRemove.Add( part.D );
+				break;
+			case MeshPartTypes.Edge:
+				vertsToRemove.Add( part.A );
+				vertsToRemove.Add( part.B );
+				break;
+			case MeshPartTypes.Vertex:
+				vertsToRemove.Add( part.A );
+				break;
+		}
+
+		vertsToRemove.Sort( ( a, b ) => b.CompareTo( a ) );
+
+		Indices.RemoveAll( x => vertsToRemove.Contains( x ) );
+
+		foreach ( var vertexIndex in vertsToRemove )
+		{
+			Vertexes.RemoveAt( vertexIndex );
+
+			for ( int i = 0; i < Indices.Count; i++ )
+			{
+				if ( Indices[i] > vertexIndex )
+				{
+					Indices[i]--;
+				}
+			}
+		}
+
 		UpdateMeshData();
 	}
 
@@ -126,6 +173,34 @@ public class EditableMesh
 			Vector3 a = v2 - v1;
 			Vector3 b = v3 - v1;
 			return Vector3.Cross( a, b ).Normal;
+		}
+	}
+
+	public void RecalculateUVs()
+	{
+		for ( int i = 0; i < Vertexes.Count; i++ )
+		{
+			var v = Vertexes[i];
+			v.Texcoord = GenerateUVCoordinates( v.Position, v.Normal, 1 / 32.0f );
+			Vertexes[i] = v;
+		}
+
+		Vector2 GenerateUVCoordinates( Vector3 Q, Vector3 P, float uvscale )
+		{
+			var U = Vector3.Cross( P, new Vector3( 0, 0, 1 ) );
+			if ( Vector3.Dot( U, U ) < 0.001 )
+			{
+				U = new Vector3( 1, 0, 0 );
+			}
+			else
+			{
+				U = U.Normal;
+			}
+
+			var V = Vector3.Cross( P, U ).Normal;
+			var uv = new Vector2( Vector3.Dot( Q, U ), Vector3.Dot( Q, V ) ) * uvscale;
+
+			return uv;
 		}
 	}
 
@@ -189,19 +264,25 @@ public class EditableMesh
 	List<int> CreateSideFaceVertices( int v0, int v1, int v2, int v3, Vector3 faceNormal )
 	{
 		var newVertsIndices = new List<int>();
-
 		int[] vertices = { v0, v1, v2, v3 };
-		foreach ( var index in vertices )
+
+		Vector3[] edgeVectors = new Vector3[4];
+		edgeVectors[0] = Vertexes[v1].Position - Vertexes[v0].Position;
+		edgeVectors[1] = Vertexes[v2].Position - Vertexes[v1].Position;
+		edgeVectors[2] = Vertexes[v3].Position - Vertexes[v2].Position;
+		edgeVectors[3] = Vertexes[v0].Position - Vertexes[v3].Position;
+
+		for ( int i = 0; i < vertices.Length; i++ )
 		{
+			var index = vertices[i];
 			var originalVertex = Vertexes[index];
+			var normal = Vector3.Cross( edgeVectors[i], faceNormal ).Normal;
 
 			var newVertex = new SimpleVertex_S
 			{
 				Position = originalVertex.Position,
-				Normal = originalVertex.Normal,
-				Tangent = originalVertex.Tangent,
-				Texcoord = originalVertex.Texcoord,
-				DistinctIndex = originalVertex.DistinctIndex 
+				Normal = normal,
+				DistinctIndex = originalVertex.DistinctIndex
 			};
 
 			Vertexes.Add( newVertex );
@@ -255,6 +336,10 @@ public class EditableMesh
 
 	public void UpdateMeshData()
 	{
+		RecalculateNormals();
+		RecalculateUVs();
+		RecalculateTangents();
+
 		Mesh = new Mesh( Material.Load( "materials/dev/reflectivity_30.vmat" ) );
 		Mesh.CreateVertexBuffer<SimpleVertex>( Vertexes.Count, SimpleVertex.Layout, Vertexes.Select( x => (SimpleVertex)x ).ToArray() );
 		Mesh.CreateIndexBuffer( Indices.Count, Indices.ToArray() );
@@ -265,7 +350,8 @@ public class EditableMesh
 
 		var edges = FindEdges();
 		var distinctEdges = edges
-			.GroupBy( edge => {
+			.GroupBy( edge =>
+			{
 				return new
 				{
 					Min = Math.Min( Vertexes[edge.A].DistinctIndex, Vertexes[edge.B].DistinctIndex ),
@@ -277,12 +363,16 @@ public class EditableMesh
 
 		parts.AddRange( distinctEdges );
 
-		var uniqueVerts = Vertexes.DistinctBy( x => x.DistinctIndex );
-		foreach ( var v in uniqueVerts )
+		HashSet<Vector3> aafasd = new();
+		for ( int i = 0; i < Vertexes.Count; i++ )
 		{
+			var v = Vertexes[i];
+			if ( aafasd.Contains( v.DistinctIndex ) ) continue;
+
+			aafasd.Add( v.DistinctIndex );
 			parts.Add( new MeshPart()
 			{
-				A = v.DistinctIndex,
+				A = i,
 				Type = MeshPartTypes.Vertex
 			} );
 		}
@@ -302,9 +392,7 @@ public class EditableMesh
 			var newVertex = new SimpleVertex_S
 			{
 				Position = originalVertex.Position + direction,
-				Normal = originalVertex.Normal,
-				Tangent = originalVertex.Tangent,
-				Texcoord = originalVertex.Texcoord,
+				Normal = direction.Normal,
 				DistinctIndex = DistinctPositions.Count - 1
 			};
 
@@ -498,7 +586,7 @@ public class EditableMesh
 					Position = pos,
 					Normal = normal,
 					Tangent = tangent,
-					Texcoord = Planar( pos / 32, uAxis[i], vAxis[i] ),
+					Texcoord = Planar( pos, uAxis[i], vAxis[i] ),
 					DistinctIndex = vertexIndex
 				} );
 			}
@@ -520,8 +608,8 @@ public class EditableMesh
 	{
 		return new Vector2()
 		{
-			x = Vector3.Dot( uAxis, pos ),
-			y = Vector3.Dot( vAxis, pos )
+			x = Vector3.Dot( uAxis, pos ) / 32,
+			y = Vector3.Dot( vAxis, pos ) / 32
 		};
 	}
 
