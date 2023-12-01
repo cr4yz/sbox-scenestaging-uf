@@ -20,6 +20,7 @@ public partial class SceneEditorSession
 
 		Scene.OnEdited += OnSceneEdited;
 		InitUndo();
+		timeSinceSavedState = 0;
 	}
 
 	public void Destroy()
@@ -68,7 +69,7 @@ public partial class SceneEditorSession
 		//
 		if ( !GameManager.IsPlaying )
 		{
-			var camera = Scene.FindAllComponents<CameraComponent>( false ).FirstOrDefault();
+			var camera = Scene.GetAllComponents<CameraComponent>().FirstOrDefault();
 
 			if ( camera is not null )
 			{

@@ -6,7 +6,7 @@ using Sandbox.UI;
 [Icon( "desktop_windows" )]
 [EditorHandle( "materials/gizmo/ui.png" )]
 [Alias( "PanelRoot" )]
-public sealed class ScreenPanel : BaseComponent, IRootPanelComponent, BaseComponent.RenderOverlay
+public sealed class ScreenPanel : BaseComponent, IRootPanelComponent, BaseComponent.IRenderOverlay
 {
 	[Property, Range( 0, 1 )] public float Opacity { get; set; } = 1.0f;
 	[Property, Range( 0, 5 )] public float Scale { get; set; } = 1.0f;
@@ -15,19 +15,19 @@ public sealed class ScreenPanel : BaseComponent, IRootPanelComponent, BaseCompon
 
 	private GameRootPanel rootPanel;
 
-	public override void OnValidate()
+	protected override void OnValidate()
 	{
 		if ( Scale < 0.001f ) Scale = 0.001f;
 	}
 
-	public override void OnAwake()
+	protected override void OnAwake()
 	{
 		rootPanel = new GameRootPanel();
 		rootPanel.RenderedManually = true;
 		rootPanel.Style.Display = DisplayMode.None;
 	}
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		if ( rootPanel is null )
 			return;
@@ -36,7 +36,7 @@ public sealed class ScreenPanel : BaseComponent, IRootPanelComponent, BaseCompon
 		rootPanel.Style.Display = DisplayMode.Flex;
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		// todo disable rootpanel
 		if ( rootPanel is null )
@@ -45,7 +45,7 @@ public sealed class ScreenPanel : BaseComponent, IRootPanelComponent, BaseCompon
 		rootPanel.Style.Display = DisplayMode.None;
 	}
 
-	public override void OnDestroy()
+	protected override void OnDestroy()
 	{
 		rootPanel?.Delete();
 		rootPanel = null;
@@ -56,7 +56,7 @@ public sealed class ScreenPanel : BaseComponent, IRootPanelComponent, BaseCompon
 		return rootPanel;
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		if ( rootPanel is null )
 			return;
@@ -66,7 +66,7 @@ public sealed class ScreenPanel : BaseComponent, IRootPanelComponent, BaseCompon
 		rootPanel.ManualScale = Scale;
 	}
 
-	void BaseComponent.RenderOverlay.OnRenderOverlay( SceneCamera camera )
+	void BaseComponent.IRenderOverlay.OnRenderOverlay( SceneCamera camera )
 	{
 		if ( rootPanel is null ) return;
 		if ( !camera.EnableUserInterface ) return;

@@ -29,6 +29,8 @@ public class ComponentControlWidget : ControlWidget
 		m.AddOption( "Clear", action: Clear );
 
 		m.OpenAtCursor( true );
+
+		e.Accepted = true;
 	}
 
 	protected override void PaintControl()
@@ -89,15 +91,15 @@ public class ComponentControlWidget : ControlWidget
 	{
 		if ( ev.Data.Object is GameObject go )
 		{
-			var c = go.GetComponent( SerializedProperty.PropertyType, false );
+			var c = go.Components.Get( SerializedProperty.PropertyType );
 			SerializedProperty.SetValue( c );
 		}
 		else if ( ev.Data.Object is GameObject[] gos )
 		{
-			var suitable = gos.FirstOrDefault( g => g.GetComponent( SerializedProperty.PropertyType, false ) is not null );
+			var suitable = gos.FirstOrDefault( g => g.Components.Get( SerializedProperty.PropertyType ) is not null );
 			if ( suitable is null ) return;
 
-			var c = suitable.GetComponent( SerializedProperty.PropertyType, false );
+			var c = suitable.Components.Get( SerializedProperty.PropertyType );
 			SerializedProperty.SetValue( c );
 		}
 	}

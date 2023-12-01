@@ -34,21 +34,15 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 	/// </summary>
 	protected abstract IEnumerable<PhysicsShape> CreatePhysicsShapes( PhysicsBody targetBody );
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		Assert.IsNull( keyframeBody );
-		Assert.AreEqual( 0, shapes.Count );
+		//Assert.AreEqual( 0, shapes.Count );
 		Assert.NotNull( Scene );
 
 		UpdatePhysicsBody();
 		RebuildImmediately();
-
-		GameObject.Tags.OnTagAdded += OnTagsChanged;
-		GameObject.Tags.OnTagRemoved += OnTagsChanged;
 	}
-
-
-
 
 	void UpdatePhysicsBody()
 	{
@@ -57,7 +51,7 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 		// is there a rigid body?
 		if ( !Static )
 		{
-			var body = GameObject.GetComponentInParent<PhysicsComponent>( true, true );
+			var body = GameObject.Components.GetInAncestorsOrSelf<PhysicsComponent>();
 			if ( body is not null )
 			{
 				physicsBody = body.GetBody();
@@ -85,7 +79,10 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 		}
 	}
 
-	private void OnTagsChanged( string obj )
+	/// <summary>
+	/// Tags have been updated - lets update our shape tags
+	/// </summary>
+	protected override void OnTagsChannged()
 	{
 		foreach ( var shape in shapes )
 		{
@@ -126,7 +123,7 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 		// try to get rigidbody
 		if ( physicsBody is null )
 		{
-			var body = GameObject.GetComponentInParent<PhysicsComponent>( true, true );
+			var body = GameObject.Components.GetInAncestorsOrSelf<PhysicsComponent>();
 			if ( body is null ) return;
 			physicsBody = body.GetBody();
 		}
@@ -150,7 +147,7 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 		_buildScale = Transform.Scale;
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		if ( shapesDirty )
 		{
@@ -173,7 +170,7 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 		}
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		foreach ( var shape in shapes )
 		{
@@ -226,6 +223,8 @@ public abstract class Collider : BaseComponent, BaseComponent.ExecuteInEditor
 			// if it's shorter, the objects will be punched quicker than the collider is moving
 			// so will tend to over-react to being touched.
 			float timeToArrive = Scene.FixedDelta;
+
+			if ( IsProxy ) timeToArrive *= 2.0f;
 
 			keyframeBody.Move( Transform.World, timeToArrive );
 		}

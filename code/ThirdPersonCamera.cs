@@ -11,7 +11,7 @@ public sealed class ThirdPersonCamera : BaseComponent
 
 	private Vector2 _lookAngles;
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		if ( Target == null ) return;
 

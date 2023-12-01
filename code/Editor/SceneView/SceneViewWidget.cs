@@ -27,6 +27,7 @@ public partial class SceneViewWidget : Widget
 		Layout.Add( Renderer );
 
 		Camera.Worlds.Add( EditorScene.GizmoInstance.World );
+		FocusMode = FocusMode.TabOrClickOrWheel;
 	}
 
 	int selectionHash = 0;
@@ -39,6 +40,8 @@ public partial class SceneViewWidget : Widget
 	{
 		var session = SceneEditorSession.Active;
 		if ( session is null ) return;
+
+		using var scope = SceneEditorSession.Scope();
 
 		// Update inspector with current selection, if changed
 		if ( selectionHash != session.Selection.GetHashCode() )
@@ -54,7 +57,7 @@ public partial class SceneViewWidget : Widget
 		Current = this;
 
 		// Lets default to the settings from the camera
-		var camera = session.Scene.FindAllComponents<CameraComponent>( false ).FirstOrDefault();
+		var camera = session.Scene.GetAllComponents<CameraComponent>().FirstOrDefault();
 		if ( camera is not null )
 		{
 			camera.UpdateCamera( Camera );
@@ -262,7 +265,7 @@ public partial class SceneViewWidget : Widget
 			DragObject = SceneEditorSession.Active.Scene.CreateObject();
 			DragObject.Name = modelAsset.ResourceName;
 
-			var mc = DragObject.AddComponent<ModelComponent>();
+			var mc = DragObject.Components.Create<ModelRenderer>();
 			mc.Model = modelAsset;
 
 		}

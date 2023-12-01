@@ -76,15 +76,15 @@ public static class SceneThumbnailRenderer
 
 	static void TryAddDefaultLighting( Scene scene )
 	{
-		if ( scene.GetComponent<DirectionalLightComponent>( false, true ) is not null ) return;
-		if ( scene.GetComponent<SpotLightComponent>( false, true ) is not null ) return;
-		if ( scene.GetComponent<PointLightComponent>( false, true ) is not null ) return;
+		if ( scene.Components.GetInDescendantsOrSelf<DirectionalLightComponent>( true ) is not null ) return;
+		if ( scene.Components.GetInDescendantsOrSelf<SpotLightComponent>( true ) is not null ) return;
+		if ( scene.Components.GetInDescendantsOrSelf<PointLightComponent>( true ) is not null ) return;
 
 		var go = scene.CreateObject();
 		go.Name = "Directional Light";
 
 		go.Transform.Rotation = Rotation.From( 90, 0, 0 );
-		var light = go.AddComponent<DirectionalLightComponent>();
+		var light = go.Components.Create<DirectionalLightComponent>();
 		light.LightColor = Color.White;
 		light.SkyColor = "#557685";
 	}
@@ -98,7 +98,23 @@ public static class SceneThumbnailRenderer
 		camera.FieldOfView = 80;
 		camera.ClearFlags = ClearFlags.Color | ClearFlags.Depth | ClearFlags.Stencil;
 
-		var cam = scene.FindAllComponents<CameraComponent>().FirstOrDefault();
+		// Tick the scene so that everything is initialized correctly
+		{
+			var gi = new Gizmo.Instance();
+			gi.Input.Camera = camera;
+			using ( gi.Push() )
+			using ( scene.Push() )
+			{
+				Time.Delta = 0.1f;
+				for ( int i = 0; i < 10; i++ )
+				{
+					Time.Now += Time.Delta;
+					scene.EditorTick();
+				}
+			}
+		}
+
+		var cam = scene.GetAllComponents<CameraComponent>().FirstOrDefault();
 		if ( cam is not null )
 		{
 			camera.Position = cam.Transform.Position;

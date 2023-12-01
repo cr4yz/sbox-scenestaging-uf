@@ -9,7 +9,7 @@ public sealed class UnicycleController : BaseComponent
 	[Property]
 	public PhysicsComponent Rigidbody { get; set; }
 	[Property]
-	public AnimatedModelComponent Citizen { get; set; }
+	public SkinnedModelRenderer Citizen { get; set; }
 	[Property]
 	public GameObject TiltRoot { get; set; }
 	[Property]
@@ -32,14 +32,14 @@ public sealed class UnicycleController : BaseComponent
 	public float SpringStiffness => 5f;
 	public float DampingRatio => 2.5f;
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		base.OnEnabled();
 
-		Citizen.SceneObject.AnimationGraph = AnimationGraph.Load( "models/citizen_unicycle_frenzy.vanmgrph" );
+		//Citizen.SceneObject.AnimationGraph = AnimationGraph.Load( "models/citizen_unicycle_frenzy.vanmgrph" );
 	}
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
 		if ( Dead )
 		{
@@ -65,7 +65,7 @@ public sealed class UnicycleController : BaseComponent
 		TiltRoot.Enabled = true;
 		Citizen.Enabled = true;
 
-		Citizen.SceneObject.AnimationGraph = AnimationGraph.Load( "models/citizen_unicycle_frenzy.vanmgrph" );
+		Citizen.SceneModel.AnimationGraph = AnimationGraph.Load( "models/citizen_unicycle_frenzy.vanmgrph" );
 
 		var pos = Transform.Position;
 		var mins = new Vector3( -2, 0, -2 );
@@ -277,13 +277,13 @@ public sealed class UnicycleController : BaseComponent
 		fuck.Transform.Rotation = Citizen.Transform.Rotation;
 		fuck.Transform.Scale = Citizen.Transform.Scale;
 
-		var modelComponent = fuck.AddComponent<AnimatedModelComponent>();
+		var modelComponent = fuck.Components.Create<SkinnedModelRenderer>();
 		modelComponent.Model = Citizen.Model;
-		modelComponent.SceneObject.UseAnimGraph = false;
-		modelComponent.CopyBonesFrom( Citizen.SceneObject );
+		//modelComponent.SceneObject.UseAnimGraph = false;
+		//modelComponent.CopyBonesFrom( Citizen.SceneObject );
 
 
-		var phys = fuck.AddComponent<ModelPhysics>( false );
+		var phys = fuck.Components.Create<ModelPhysics>( false );
 		phys.Model = Citizen.Model;
 		phys.Renderer = modelComponent;
 		phys.Enabled = true;
@@ -304,7 +304,7 @@ public sealed class UnicycleController : BaseComponent
 
 public static class ModelExt
 {
-	public static void CopyBonesFrom( this AnimatedModelComponent self, SceneModel from, float scale = 1.0f )
+	public static void CopyBonesFrom( this SkinnedModelRenderer self, SceneModel from, float scale = 1.0f )
 	{
 		if ( self.Model.BoneCount != from.Model.BoneCount )
 		{
@@ -315,7 +315,7 @@ public static class ModelExt
 		for ( int i = 0; i < from.Model.BoneCount; i++ )
 		{
 			var tx = from.GetBoneWorldTransform( i );
-			self.SceneObject.SetBoneWorldTransform( i, tx );
+			//self.SceneObject.SetBoneWorldTransform( i, tx );
 		}
 	}
 }

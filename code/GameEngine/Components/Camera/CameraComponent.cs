@@ -37,7 +37,13 @@ public class CameraComponent : BaseComponent
 	[Property]
 	public StereoTargetEye TargetEye { get; set; } = StereoTargetEye.None;
 
-	public override void DrawGizmos()
+	[Property]
+	public TagSet RenderTags { get; set; } = new();
+
+	[Property]
+	public TagSet RenderExcludeTags { get; set; } = new();
+
+	protected override void DrawGizmos()
 	{
 		if ( sceneCamera is null )
 			return;
@@ -78,16 +84,15 @@ public class CameraComponent : BaseComponent
 
 	public void UpdateCamera( SceneCamera camera )
 	{
-		var scene = GameObject.Scene;
-		if ( scene is null )
+		if ( Scene is null )
 		{
 			Log.Warning( $"Trying to update camera from {this} but has no scene" );
 			return;
 		}
 
-		camera.World = scene.SceneWorld;
+		camera.World = Scene.SceneWorld;
 		camera.Worlds.Clear();
-		camera.Worlds.Add( scene.DebugSceneWorld );
+		camera.Worlds.Add( Scene.DebugSceneWorld );
 		camera.Position = Transform.Position;
 		camera.Rotation = Transform.Rotation;
 		camera.ZNear = ZNear;
@@ -117,7 +122,10 @@ public class CameraComponent : BaseComponent
 		camera.OnRenderOverlay = () => OnCameraRenderOverlay( camera );
 		camera.OnRenderTransparent = () => RenderHooks( afterTransparentHooks, camera );
 
-		foreach ( var c in GetComponents<ISceneCameraSetup>() )
+		camera.RenderTags.SetFrom( RenderTags );
+		camera.ExcludeTags.SetFrom( RenderExcludeTags );
+
+		foreach ( var c in Components.GetAll<ISceneCameraSetup>() )
 		{
 			c.SetupCamera( this, camera );
 		}

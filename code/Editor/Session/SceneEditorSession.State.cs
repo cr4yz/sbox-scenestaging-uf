@@ -50,7 +50,7 @@ public partial class SceneEditorSession
 		//
 		// 2. Place camera where a Camera component is
 		//
-		var cc = Scene.GetComponent<CameraComponent>( true, true );
+		var cc = Scene.GetAllComponents<CameraComponent>().FirstOrDefault();
 		if ( cc is not null )
 		{
 			CameraPosition = cc.Transform.Position;
@@ -74,6 +74,7 @@ public partial class SceneEditorSession
 	{
 		// Don't save the state of play sessions
 		if ( this is GameEditorSession ) return;
+		if ( ProjectCookie is null ) return;
 
 		var cookieName = CookieName;
 

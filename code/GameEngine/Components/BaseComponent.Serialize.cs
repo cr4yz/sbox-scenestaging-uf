@@ -87,6 +87,16 @@ public abstract partial class BaseComponent
 		Enabled = (bool)(node["__enabled"] ?? true);
 	}
 
+	/// <summary>
+	/// Deserialize this component as per <see cref="Deserialize"/> but update <see cref="GameObject"/> and <see cref="BaseComponent"/> property
+	/// references immediately instead of having them deferred.
+	/// </summary>
+	public void DeserializeImmediately( JsonObject node )
+	{
+		Deserialize( node );
+		PostDeserialize();
+	}
+
 	private void DeserializeProperty( PropertyDescription prop, JsonNode node )
 	{
 		if ( prop.PropertyType == typeof( GameObject ) )
@@ -124,7 +134,7 @@ public abstract partial class BaseComponent
 					var go = Scene.Directory.FindByGuid( guid );
 					if ( go is null ) Log.Warning( $"GameObject - {guid} was not found for {GetType().Name}.{prop.Name}" );
 
-					var component = go.GetComponent( prop.PropertyType, false, false );
+					var component = go.Components.Get( prop.PropertyType, FindMode.EverythingInSelf );
 					if ( component is null ) Log.Warning( $"Component - Unable to find {prop.PropertyType} on {go} for {GetType().Name}.{prop.Name}" );
 
 					prop.SetValue( this, component );

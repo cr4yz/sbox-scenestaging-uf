@@ -24,7 +24,6 @@ public class TagSetControlWidget : ControlWidget
 		Layout.AddStretchCell();
 
 		Layout.Add( new Button( null, "local_offer" ) { MouseLeftPress = OpenPopup, FixedWidth = ControlRowHeight, FixedHeight = ControlRowHeight, OnPaintOverride = PaintTagAdd, ToolTip = "Tags" } );
-
 	}
 
 	protected override int ValueHash
@@ -51,6 +50,20 @@ public class TagSetControlWidget : ControlWidget
 
 		var tags = SerializedProperty.GetValue<ITagSet>();
 		if ( tags is null ) return;
+
+		if ( tags is GameTags gameTags )
+		{
+			var own = gameTags.TryGetAll( false ).ToArray();
+
+			foreach ( var tag in gameTags.TryGetAll().Take( 32 ) )
+			{
+				var isSelf = own.Contains( tag );
+
+				TagsArea.Add( new TagButton( this ) { TagText = tag, MouseLeftPress = () => RemoveTag( tag ), IsInherited = !isSelf } );
+			}
+
+			return;
+		}
 		
 		foreach( var tag in tags.TryGetAll().Take( 32 ) )
 		{
@@ -85,8 +98,17 @@ public class TagSetControlWidget : ControlWidget
 
 		if ( tags is null )
 		{
-			Log.Warning( "TODO: create ITagSet if we can, base on what type the property is" );
-			return;
+
+			if ( SerializedProperty.PropertyType == typeof( TagSet ) )
+			{
+				tags = new TagSet();
+				SerializedProperty.SetValue( tags );
+			}
+			else
+			{
+				Log.Warning( "ITagSet is null and we don't know how to create it" );
+				return;
+			}
 		}
 
 		var popup = new PopupWidget( this );
@@ -129,7 +151,17 @@ public class TagSetControlWidget : ControlWidget
 						MouseLeftPress = () => tags.Toggle( t ),
 					};
 
-					button.OnPaintOverride = () => PaintTagButton( t, c, button.LocalRect, tags.Has( t ) );
+
+					if ( tags is GameTags gameTags )
+					{
+						button.OnPaintOverride = () => PaintTagButton( t, c, button.LocalRect, gameTags.Has( t, false ) );
+					}
+					else
+					{
+						button.OnPaintOverride = () => PaintTagButton( t, c, button.LocalRect, tags.Has( t ) );
+					}
+
+					
 
 					grid.AddCell( i % 2, i / 2, button );
 					i++;
@@ -189,6 +221,8 @@ public class TagSetControlWidget : ControlWidget
 
 file class TagButton : Widget
 {
+	public bool IsInherited;
+
 	public TagButton( Widget parent ) : base( parent )
 	{
 		SetSizeMode( SizeMode.CanShrink, SizeMode.Default );
@@ -206,6 +240,8 @@ file class TagButton : Widget
 	{
 		var alpha = Paint.HasMouseOver ? 1.0f : 0.7f;
 		var color = Theme.Blue;
+
+		if ( IsInherited ) color = Theme.Grey;
 
 		Paint.SetDefaultFont( 7 );
 

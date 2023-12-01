@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -7,6 +8,10 @@ public partial class GameObject
 {
 	public class SerializeOptions
 	{
+		/// <summary>
+		/// If we're serializing for network, we won't include any networked objects
+		/// </summary>
+		public bool SceneForNetwork { get; set; }
 	}
 
 	//
@@ -14,10 +19,15 @@ public partial class GameObject
 	// into a JsonObject. I haven't benchmarked this, but I assume it's okay.
 	//
 
-	public JsonObject Serialize( SerializeOptions options = null )
+	public virtual JsonObject Serialize( SerializeOptions options = null )
 	{
 		if ( Flags.HasFlag( GameObjectFlags.NotSaved ) )
 			return null;
+
+		if ( options is not null )
+		{
+			if ( options.SceneForNetwork && Network.Active ) return null;
+		}
 
 		bool isPartOfPrefab = IsPrefabInstance;
 
@@ -25,12 +35,18 @@ public partial class GameObject
 		{
 			{ "Id", Id },
 			{ "Name", Name },
-			{ "Enabled", Enabled },
-			{ "Position",  JsonValue.Create( Transform.LocalPosition ) },
-			{ "Rotation", JsonValue.Create( Transform.LocalRotation ) },
-			{ "Scale", JsonValue.Create( Transform.LocalScale ) },
-			{ "Tags", string.Join( ",", Tags.TryGetAll() ) }
 		};
+		
+		if ( Transform.Position != Vector3.Zero ) json.Add( "Position", JsonValue.Create( Transform.LocalPosition ) );
+		if ( Transform.LocalRotation != Rotation.Identity ) json.Add( "Rotation", JsonValue.Create( Transform.LocalRotation ) );
+		if ( Transform.LocalScale != 1.0f ) json.Add( "Scale", JsonValue.Create( Transform.LocalScale ) );
+		if ( Tags.TryGetAll().Any() ) json.Add( "Tags", string.Join( ",", Tags.TryGetAll() ) );
+
+		if ( Networked ) json.Add( "Networked", true );
+		if ( Enabled ) json.Add( "Enabled", true );
+		
+		
+		
 
 		if ( IsPrefabInstanceRoot )
 		{
@@ -40,11 +56,11 @@ public partial class GameObject
 			return json;
 		}
 
-		if ( Components.Any() && !isPartOfPrefab )
+		if ( Components.Count > 0 && !isPartOfPrefab )
 		{
 			var components = new JsonArray();
 
-			foreach ( var component in Components )
+			foreach ( var component in Components.GetAll() )
 			{
 				if ( component is null ) continue;
 
@@ -95,13 +111,15 @@ public partial class GameObject
 		return json;
 	}
 
-	public void Deserialize( JsonObject node )
+	public virtual void Deserialize( JsonObject node )
 	{
+		using var batchGroup = CallbackBatch.StartGroup();
+
 		Id = node["Id"].Deserialize<Guid>();
 		Name = node["Name"].ToString() ?? Name;
-		Transform.LocalPosition = node["Position"].Deserialize<Vector3>();
-		Transform.LocalRotation = node["Rotation"].Deserialize<Rotation>();
-		Transform.LocalScale = node["Scale"].Deserialize<Vector3>();
+		Transform.LocalPosition = node["Position"]?.Deserialize<Vector3>() ?? Vector3.Zero;
+		Transform.LocalRotation = node["Rotation"]?.Deserialize<Rotation>() ?? Rotation.Identity;
+		Transform.LocalScale = node["Scale"]?.Deserialize<Vector3>() ?? Vector3.One;
 
 		if ( node["Tags"].Deserialize<string>() is string tags )
 		{
@@ -129,7 +147,7 @@ public partial class GameObject
 			foreach ( var child in childArray )
 			{
 				if ( child is not JsonObject jso )
-					return;
+					continue;
 
 				var go = new GameObject();
 
@@ -146,32 +164,29 @@ public partial class GameObject
 				if ( component is not JsonObject jso )
 				{
 					Log.Warning( $"Component entry is not an object!" );
-					return;
+					continue;
 				}
 
 				var componentType = TypeLibrary.GetType<BaseComponent>( (string)jso["__type"] );
 				if ( componentType is null )
 				{
 					Log.Warning( $"TypeLibrary couldn't find BaseComponent type {jso["__type"]}" );
-					return;
+					continue;
 				}
 
-				var c = this.AddComponent( componentType );
+				var c = this.Components.Create( componentType );
 				if ( c is null ) continue;
 
 				c.Deserialize( jso );
 			}
 		}
 
-		Enabled = (bool)(node["Enabled"] ?? Enabled);
+		Enabled = (bool)(node["Enabled"] ?? false);
+		Networked = (bool) (node["Networked"] ?? false);
 
-		ForEachComponent( "OnValidate", false, c => c.OnValidateInternal() );
-
-
-		if ( !SceneUtility.IsSpawning )
-		{
-			PostDeserialize();
-		}
+		Components.ForEach( "OnLoadInternal", true, c => c.OnLoadInternal() );
+		Components.ForEach( "OnValidate", true, c => c.OnValidateInternal() );
+		CallbackBatch.Add( CommonCallback.Deserialized, PostDeserialize, this, "PostDeserialize" );
 	}
 
 	public PrefabFile GetAsPrefab()
@@ -183,10 +198,7 @@ public partial class GameObject
 
 	internal void PostDeserialize()
 	{
-		foreach ( var component in Components )
-		{
-			component.PostDeserialize();
-		}
+		Components.ForEach( "PostDeserialize", true, c => c.PostDeserialize() );
 
 		foreach ( var child in Children )
 		{

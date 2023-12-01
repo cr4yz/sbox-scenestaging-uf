@@ -11,7 +11,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 	Model model;
 	PhysicsBody physicsBody;
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		base.OnEnabled();
 
@@ -25,8 +25,8 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 				.AddMesh( Mesh.Mesh )
 				.Create();
 
-			if ( !TryGetComponent<ModelComponent>( out var mr, false ) )
-				mr = GameObject.AddComponent<ModelComponent>();
+			if ( !Components.TryGet<ModelRenderer>( out var mr, FindMode.EverythingInSelf ) )
+				mr = GameObject.Components.Create<ModelRenderer>();
 
 			mr.Model = model;
 
@@ -45,7 +45,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 		shape.Tags.SetFrom( GameObject.Tags );
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		base.OnDisabled();
 
@@ -54,7 +54,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 	}
 
 	Dictionary<int, TestShit> hack;
-	public override void DrawGizmos()
+	protected override void DrawGizmos()
 	{
 		base.DrawGizmos();
 

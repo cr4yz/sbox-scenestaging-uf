@@ -37,8 +37,7 @@ public static class SceneEditorMenus
 		EditorUtility.Clipboard.Copy( json.ToString() );
 		go.Destroy();
 	}
-
-
+	
 	[Menu( "Editor", "Scene/Copy", Shortcut = "Ctrl+C" )]
 	public static void Copy()
 	{
@@ -63,7 +62,6 @@ public static class SceneEditorMenus
 		}
 
 		using var scope = SceneEditorSession.Scope();
-		using var initScope = SceneUtility.DeferInitializationScope( "paste" );
 
 		var text = EditorUtility.Clipboard.Paste();
 		if ( JsonNode.Parse( text ) is JsonObject jso )
@@ -94,7 +92,6 @@ public static class SceneEditorMenus
 		var selected = EditorScene.Selection.First() as GameObject;
 
 		using var scope = SceneEditorSession.Scope();
-		using var initScope = SceneUtility.DeferInitializationScope( "paste" );
 
 		var text = EditorUtility.Clipboard.Paste();
 		if ( JsonNode.Parse( text ) is JsonObject jso )
@@ -119,7 +116,6 @@ public static class SceneEditorMenus
 	public static void Duplicate()
 	{
 		using var scope = SceneEditorSession.Scope();
-		using var initScope = SceneUtility.DeferInitializationScope( "duplicate" );
 
 		var options = new GameObject.SerializeOptions();
 		var source = EditorScene.Selection.First() as GameObject;
@@ -188,7 +184,7 @@ public static class SceneEditorMenus
 			// get the bounding box of the selected objects
 			bbox = bbox.AddBBox( new BBox( entry.Transform.Position, 16 ) );
 
-			foreach ( var model in entry.GetComponents<ModelComponent>( true, true ) )
+			foreach ( var model in entry.Components.GetAll<ModelRenderer>( FindMode.EnabledInSelfAndDescendants ) )
 			{
 				bbox = bbox.AddBBox( model.Bounds );
 			}

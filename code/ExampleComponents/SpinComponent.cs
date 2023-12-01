@@ -4,8 +4,10 @@ public sealed class SpinComponent : BaseComponent
 {
 	[Property] public Angles SpinAngles { get; set; }
 
-	public override void Update()
+	protected override void OnUpdate()
 	{
-		Transform.LocalRotation *= (SpinAngles * RealTime.Delta).ToRotation();
+		if ( IsProxy ) return;
+
+		Transform.LocalRotation *= (SpinAngles * Time.Delta).ToRotation();
 	}
 }

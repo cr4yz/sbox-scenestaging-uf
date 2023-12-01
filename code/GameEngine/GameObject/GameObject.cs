@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading;
 
 
 public partial class GameObject
@@ -15,8 +16,25 @@ public partial class GameObject
 	[Property]
 	public string Name { get; set; } = "Untitled Object";
 
+	[Property]
+	public bool Lerping { get; set; } = true;
 
 	bool _enabled = true;
+
+	/// <summary>
+	/// This token source is expired when leaving the game session, or when the GameObject is disabled/destroyed.
+	/// </summary>
+	CancellationTokenSource enabledTokenSource;
+
+	/// <summary>
+	/// This token is cancelled when the GameObject ceases to exist, or is disabled
+	/// </summary>
+	public CancellationToken EnabledToken => enabledTokenSource?.Token ?? CancellationToken.None;
+
+	/// <summary>
+	/// Access components on this GameObject
+	/// </summary>
+	public ComponentList Components { get; private set; }
 
 	/// <summary>
 	/// Is this gameobject enabled?
@@ -30,21 +48,41 @@ public partial class GameObject
 			if ( _enabled == value )
 				return;
 
+			using var batchGroup = CallbackBatch.StartGroup();
+
 			_enabled = value;
 			Transform.ClearLerp();
 
-			SceneUtility.ActivateGameObject( this );
+			if ( _enabled )
+			{
+				CreateTaskSource();
+			}
+			else
+			{
+				CancelTaskSource();
+			}
+
+			UpdateEnabledStatus();
 		}
 	}
+
+
+	internal TaskSource Task { get; set; }
 
 	public GameObject( bool enabled, string name )
 	{
 		Transform = new GameTransform( this );
+		Components = new ComponentList( this );
 		Tags = new GameTags( this );
 		_enabled = enabled;
 		Scene = this as Scene ?? GameManager.ActiveScene;
 		Id = Guid.NewGuid();
 		Name = name;
+
+		if ( enabled )
+		{
+			CreateTaskSource();
+		}
 
 		if ( this is Scene scene )
 		{
@@ -70,7 +108,29 @@ public partial class GameObject
 		return $"GameObject:{Name}";
 	}
 
-	public List<BaseComponent> Components = new List<BaseComponent>();
+	/// <summary>
+	/// Creates a new task source. Any Waits etc created by Task will be cancelled
+	/// when the GameObject is disabled, or destroyed, or the game is exited.
+	/// </summary>
+	private void CreateTaskSource()
+	{
+		// cancel any previous tasks
+		CancelTaskSource();
+
+		enabledTokenSource = TaskSource.CreateLinkedTokenSource();
+		Task = TaskSource.Create( enabledTokenSource.Token );
+	}
+
+	/// <summary>
+	/// Cancel this task source
+	/// </summary>
+	private void CancelTaskSource()
+	{
+		enabledTokenSource?.Cancel();
+		enabledTokenSource?.Dispose();
+		enabledTokenSource = null;
+		Task.Expire();
+	}
 
 	GameObject _parent;
 
@@ -111,11 +171,11 @@ public partial class GameObject
 
 	internal void PreRender()
 	{
-		ForEachComponent( "PreRender", true, c => c.PreRender() );
-		ForEachChild( "PreRender", true, c => c.PreRender() );
+		Components.ForEach( "PreRender", false, c => c.PreRender() );
+		ForEachChild( "PreRender", false, c => c.PreRender() );
 	}
 
-	internal void ForEachChild( string name, bool activeOnly, Action<GameObject> action )
+	internal void ForEachChild( string name, bool includeDisabled, Action<GameObject> action )
 	{
 		for ( int i = Children.Count - 1; i >= 0; i-- )
 		{
@@ -130,7 +190,7 @@ public partial class GameObject
 				continue;
 			}
 
-			if ( activeOnly && !c.Active )
+			if ( !includeDisabled && !c.Active )
 				continue;
 
 			try
@@ -152,12 +212,9 @@ public partial class GameObject
 	/// </summary>
 	internal void UpdateEnabledStatus()
 	{
-		ForEachComponent( "UpdateEnabledStatus", false, c =>
-		{
-			c.GameObject = this;
-			c.UpdateEnabledStatus();
-		} );
+		using var batch = CallbackBatch.StartGroup();
 
+		Components.ForEach( "UpdateEnabledStatus", true, c => c.UpdateEnabledStatus() );
 		ForEachChild( "UpdateEnabledStatus", true, c => c.UpdateEnabledStatus() );
 	}
 
@@ -272,7 +329,7 @@ public partial class GameObject
 	/// </summary>
 	public BBox GetBounds()
 	{
-		var renderers = GetComponents<ModelComponent>( true, true );
+		var renderers = Components.GetAll<ModelRenderer>( FindMode.EnabledInSelfAndDescendants );
 
 		return BBox.FromBoxes( renderers.Select( x => x.Bounds ) );
 	}

@@ -5,7 +5,7 @@ using System;
 [Title( "Rigid Body" )]
 [Category( "Physics" )]
 [Icon( "panorama_fish_eye", "red", "white" )]
-public class PhysicsComponent : BaseComponent
+public class PhysicsComponent : BaseComponent, INetworkSerializable
 {
 	[Property] public bool Gravity { get; set; } = true;
 
@@ -29,7 +29,7 @@ public class PhysicsComponent : BaseComponent
 		set => _body.AngularVelocity = value;
 	}
 
-	public override void OnEnabled()
+	protected override void OnEnabled()
 	{
 		Assert.True( _body == null );
 		Assert.NotNull( Scene, "Tried to create physics object but no scene" );
@@ -52,7 +52,7 @@ public class PhysicsComponent : BaseComponent
 		UpdateColliders();
 	}
 
-	public override void OnDisabled()
+	protected override void OnDisabled()
 	{
 		Transform.OnTransformChanged -= OnLocalTransformChanged;
 
@@ -64,9 +64,12 @@ public class PhysicsComponent : BaseComponent
 
 	bool isUpdatingPositionFromPhysics;
 
-	public override void FixedUpdate()
+	protected override void OnFixedUpdate()
 	{
 		if ( _body is null ) return;
+
+		if ( GameObject.IsProxy )
+			return; 
 
 		_body.GravityEnabled = Gravity;
 
@@ -75,6 +78,15 @@ public class PhysicsComponent : BaseComponent
 		isUpdatingPositionFromPhysics = true;
 		Transform.World = bt.WithScale( Transform.Scale.x );
 		isUpdatingPositionFromPhysics = false;
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( GameObject.IsProxy )
+		{
+			_body.Transform = Transform.World;
+			return;
+		}
 	}
 
 	void OnLocalTransformChanged()
@@ -92,10 +104,21 @@ public class PhysicsComponent : BaseComponent
 	/// </summary>
 	void UpdateColliders()
 	{
-		foreach( var c in GameObject.GetComponents<Collider>( true, true ) )
+		foreach( var c in GameObject.Components.GetAll<Collider>( FindMode.EnabledInSelfAndDescendants ) )
 		{
 			c.OnPhysicsChanged();
 		}
 	}
 
+	public void Write( ref ByteStream stream )
+	{
+		stream.Write( _body.Velocity );
+		stream.Write( _body.AngularVelocity );
+	}
+
+	public void Read( ByteStream stream )
+	{
+		_body.Velocity = stream.Read<Vector3>();
+		_body.AngularVelocity = stream.Read<Vector3>();
+	}
 }
