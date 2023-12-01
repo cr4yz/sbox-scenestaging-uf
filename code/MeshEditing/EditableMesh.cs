@@ -1,6 +1,7 @@
 ﻿
 using Sandbox;
 using System.Collections.Generic;
+using System.Transactions;
 
 public class EditableMesh
 {
@@ -18,8 +19,30 @@ public class EditableMesh
 
 	public Action OnMeshChanged;
 
+	public void Rotate( IEnumerable<MeshPart> parts, Angles angles, Vector3 center )
+	{
+		var rotationMatrix = Matrix.CreateRotation( angles.ToRotation() );
+		var transformationMatrix = Matrix.CreateTranslation( -center ) * rotationMatrix * Matrix.CreateTranslation( center );
+
+		Transform( parts, transformationMatrix );
+	}
+
+	// todo: per axis scaling
+	public void Scale( IEnumerable<MeshPart> parts, float scale, Vector3 center )
+	{
+		var scaleMatrix = Matrix.CreateScale( scale, center );
+		Transform( parts, scaleMatrix );
+	}
+
 	public void Translate( IEnumerable<MeshPart> parts, Vector3 translation )
 	{
+		Transform( parts, Matrix.CreateTranslation( translation ) );
+	}
+
+	public void Transform( IEnumerable<MeshPart> parts, Matrix transformation )
+	{
+		if ( !parts?.Any() ?? false ) return;
+
 		List<int> distinctPositions = new();
 
 		foreach ( var part in parts )
@@ -46,7 +69,8 @@ public class EditableMesh
 
 		foreach ( var pos in distinctPositions )
 		{
-			var newPosition = DistinctPositions[pos] + translation;
+			var currentPosition = DistinctPositions[pos];
+			var newPosition = transformation.Transform( currentPosition );
 			UpdateVertexPosition( pos, newPosition );
 		}
 
@@ -55,10 +79,9 @@ public class EditableMesh
 		OnMeshChanged?.Invoke();
 	}
 
-	public void ExtrudeSelection( float distance )
+	public void ExtrudeFace( MeshPart face, float distance )
 	{
-		var face = Selection.FirstOrDefault( x => x.Type == MeshPartTypes.Face );
-		if ( face == null ) return;
+		if ( face == null || face.Type != MeshPartTypes.Face ) return;
 
 		var originalVerts = new List<int> { face.A, face.B, face.C, face.D };
 
@@ -86,7 +109,7 @@ public class EditableMesh
 	{
 		List<int> vertsToRemove = new();
 
-		switch ( part.Type ) 
+		switch ( part.Type )
 		{
 			case MeshPartTypes.Face:
 				vertsToRemove.Add( part.A );
@@ -285,6 +308,37 @@ public class EditableMesh
 		return newVertsIndices;
 	}
 
+	public Vector3 CalculateNormal( IEnumerable<MeshPart> parts )
+	{
+		var indices = new List<int>();
+
+		foreach ( var part in parts )
+		{
+			switch ( part.Type )
+			{
+				case MeshPartTypes.Vertex:
+					indices.Add( part.A );
+					break;
+				case MeshPartTypes.Edge:
+					indices.Add( part.A );
+					indices.Add( part.B );
+					break;
+				case MeshPartTypes.Face:
+					indices.Add( part.A );
+					indices.Add( part.B );
+					indices.Add( part.C );
+					indices.Add( part.D );
+					break;
+			}
+		}
+
+		indices = indices.Distinct().ToList();
+
+		if ( !indices.Any() ) return default;
+
+		return CalculateAverageNormal( indices );
+	}
+
 	public Vector3 CalculateCenter( IEnumerable<MeshPart> parts )
 	{
 		if ( parts == null || !parts.Any() ) return default;
@@ -297,6 +351,30 @@ public class EditableMesh
 		}
 
 		return center / Selection.Count();
+	}
+
+	public BBox CalculateBounds( MeshPart part )
+	{
+		var result = new BBox();
+
+		switch ( part.Type )
+		{
+			case MeshPartTypes.Vertex:
+				result = result.AddPoint( Vertexes[part.A].Position );
+				break;
+			case MeshPartTypes.Edge:
+				result = result.AddPoint( Vertexes[part.A].Position );
+				result = result.AddPoint( Vertexes[part.B].Position );
+				break;
+			case MeshPartTypes.Face:
+				result = result.AddPoint( Vertexes[part.A].Position );
+				result = result.AddPoint( Vertexes[part.B].Position );
+				result = result.AddPoint( Vertexes[part.C].Position );
+				result = result.AddPoint( Vertexes[part.D].Position );
+				break;
+		}
+
+		return result;
 	}
 
 	public Vector3 CalculateCenter( MeshPart part )
@@ -359,7 +437,7 @@ public class EditableMesh
 		HashSet<Vector3> aafasd = new();
 		for ( int i = 0; i < Vertexes.Count; i++ )
 		{
-			if ( aafasd.Contains( Vertexes[i].DistinctIndex ) ) 
+			if ( aafasd.Contains( Vertexes[i].DistinctIndex ) )
 				continue;
 
 			aafasd.Add( Vertexes[i].DistinctIndex );

@@ -3,8 +3,25 @@
 public class MeshPartEditor : Widget
 {
 
+	TestShit Target;
+
+	[Event( "scene.frame", Priority = 123 )]
+	public void FrameToSelection( BBox bbox )
+	{
+		if ( Target?.Part == null ) return;
+		if ( Target?.Mesh == null ) return;
+
+		var center = Target.Mesh.CalculateCenter( new List<MeshPart>() { Target.Part } );
+		center += Target.Transform.Position;
+		bbox = new BBox( center, 64f );
+
+		SceneViewWidget.Current.FrameOn( bbox );
+	}
+
 	public MeshPartEditor( Widget parent = null, TestShit target = null ) : base( parent )
 	{
+		Target = target;
+
 		Layout = Layout.Column();
 		Layout.Spacing = 4;
 		Layout.Margin = 10;
@@ -14,7 +31,7 @@ public class MeshPartEditor : Widget
 		if ( target.Part.Type == MeshPartTypes.Face )
 		{
 			var extrudeButton = Layout.Add( new Button( "Extrude" ) );
-			extrudeButton.Clicked = () => target.Mesh.ExtrudeSelection( 64 );
+			extrudeButton.Clicked = () => target.Mesh.ExtrudeFace( target.Part, 64 );
 		}
 
 		if ( target.Part.Type != MeshPartTypes.Vertex )

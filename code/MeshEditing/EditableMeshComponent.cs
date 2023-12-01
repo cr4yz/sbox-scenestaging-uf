@@ -63,11 +63,39 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 		if ( Mesh.Selection.Any() )
 		{
 			var center = Mesh.CalculateCenter( Mesh.Selection );
-			using ( Gizmo.Scope( "position", center ) )
+			var normal = Mesh.CalculateNormal( Mesh.Selection );
+
+			var tx = new global::Transform( center, Rotation.Identity, 1.0f );
+
+			if ( !Gizmo.Settings.GlobalSpace && Gizmo.Settings.EditMode != "rotation" )
 			{
-				if ( Gizmo.Control.Position( "position", center, out var newPos, null, 0f ) )
+				tx = tx.WithRotation( Rotation.LookAt( normal ) );
+			}
+
+			using ( Gizmo.Scope( "handles", tx ) )
+			{
+				switch ( Gizmo.Settings.EditMode )
 				{
-					Mesh.Translate( Mesh.Selection, newPos - center );
+					case "scale":
+						// todo: per axis scaling
+						if ( Gizmo.Control.Scale( "scale mesh part", 1f, out var newScale ) )
+						{
+							Mesh.Scale( Mesh.Selection, newScale, center );
+						}
+						break;
+					case "rotation":
+						if ( Gizmo.Control.Rotate( "rotate mesh part", new Angles(), out var newAngles ) )
+						{
+							Mesh.Rotate( Mesh.Selection, newAngles, center );
+						}
+						break;
+					case "position":
+						if ( Gizmo.Control.Position( "translate mesh part", center, out var newPos, null, 2f ) )
+						{
+							var delta = Matrix.CreateRotation( tx.Rotation ).Transform( newPos - center );
+							Mesh.Translate( Mesh.Selection, delta );
+						}
+						break;
 				}
 			}
 		}
@@ -85,6 +113,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 
 			hack[das].Part = part;
 			hack[das].Mesh = Mesh;
+			hack[das].Transform = Transform;
 
 			using ( Gizmo.ObjectScope( hack[das], new Transform( 0, Rotation.Identity, 1 ) ) )
 			{
@@ -165,4 +194,5 @@ public class TestShit
 {
 	public MeshPart Part;
 	public EditableMesh Mesh;
+	public GameTransform Transform;
 }
