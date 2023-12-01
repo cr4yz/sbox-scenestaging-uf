@@ -33,7 +33,7 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 			GenerateCollisionMesh();
 		};
 
-		Mesh.UpdateMeshData();
+		Mesh.Refresh();
 	}
 
 	void GenerateCollisionMesh()
@@ -97,16 +97,19 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 						var posD = Mesh.Vertexes[part.D].Position;
 
 						var center = (posA + posB + posC + posD) / 4;
-						var box = new BBox( center, 8f );
-						var end = center + Mesh.Vertexes[part.A].Normal * 20f;
 
-						Gizmo.Draw.Color = Color.White;
-						Gizmo.Draw.SolidBox( box );
-
-						Gizmo.Hitbox.BBox( box );
-						Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.White;
+						Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.Black;
 						Gizmo.Draw.Color = Gizmo.IsSelected ? Color.Green : Gizmo.Draw.Color;
-						Gizmo.Draw.SolidBox( box );
+						Gizmo.Draw.SolidBox( new BBox( center, 2f ) );
+						Gizmo.Hitbox.BBox( new BBox( center, 5f ) );
+
+
+						if ( Gizmo.IsSelected || Gizmo.IsHovered )
+						{
+							Gizmo.Draw.Color = Gizmo.Draw.Color.WithAlpha( 0.45f );
+							Gizmo.Draw.SolidTriangle( posA, posB, posC );
+							Gizmo.Draw.SolidTriangle( posB, posD, posA );
+						}
 
 						break;
 					case MeshPartTypes.Vertex:
@@ -119,21 +122,30 @@ public class EditableMeshComponent : BaseComponent, BaseComponent.ExecuteInEdito
 						};
 
 						Gizmo.Hitbox.BBox( vertbox );
-						Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.White;
+						Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.Black;
 						Gizmo.Draw.Color = Gizmo.IsSelected ? Color.Green : Gizmo.Draw.Color;
-						Gizmo.Draw.SolidBox( vertbox );
+						Gizmo.Draw.SolidSphere( pos, 1f );
 						break;
 					case MeshPartTypes.Edge:
 						var edgeA = Mesh.Vertexes[part.A].Position;
 						var edgeB = Mesh.Vertexes[part.B].Position;
 
-						using ( Gizmo.Hitbox.LineScope() )
+						if ( !part.Selected )
 						{
-							Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.White;
-							Gizmo.Draw.Color = part.Selected ? Color.Green : Gizmo.Draw.Color;
+							using ( Gizmo.Hitbox.LineScope() )
+							{
+								Gizmo.Hitbox.AddPotentialLine( edgeA, edgeB, 2.0f );
+								Gizmo.Draw.LineThickness = Gizmo.IsHovered ? 2.0f : 0.5f;
+								Gizmo.Draw.Color = Gizmo.IsHovered ? Color.Yellow : Color.Black;
+								Gizmo.Draw.Line( edgeA, edgeB );
+							}
+						}
+						else
+						{
+							Gizmo.Draw.LineThickness = 2.25f;
+							Gizmo.Draw.Color = Color.Green;
 							Gizmo.Draw.Line( edgeA, edgeB );
 						}
-
 						break;
 				}
 

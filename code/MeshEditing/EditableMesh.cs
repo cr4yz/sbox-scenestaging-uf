@@ -50,7 +50,7 @@ public class EditableMesh
 			UpdateVertexPosition( pos, newPosition );
 		}
 
-		UpdateMeshData();
+		Refresh();
 
 		OnMeshChanged?.Invoke();
 	}
@@ -79,7 +79,7 @@ public class EditableMesh
 		}
 
 		Delete( face );
-		UpdateMeshData();
+		Refresh();
 	}
 
 	public void Delete( MeshPart part )
@@ -120,7 +120,7 @@ public class EditableMesh
 			}
 		}
 
-		UpdateMeshData();
+		Refresh();
 	}
 
 	public void RecalculateNormals()
@@ -327,7 +327,7 @@ public class EditableMesh
 		return center / count;
 	}
 
-	public void UpdateMeshData()
+	public void Refresh()
 	{
 		RecalculateNormals();
 		RecalculateUVs();
@@ -359,10 +359,10 @@ public class EditableMesh
 		HashSet<Vector3> aafasd = new();
 		for ( int i = 0; i < Vertexes.Count; i++ )
 		{
-			var v = Vertexes[i];
-			if ( aafasd.Contains( v.DistinctIndex ) ) continue;
+			if ( aafasd.Contains( Vertexes[i].DistinctIndex ) ) 
+				continue;
 
-			aafasd.Add( v.DistinctIndex );
+			aafasd.Add( Vertexes[i].DistinctIndex );
 			parts.Add( new MeshPart()
 			{
 				A = i,
@@ -565,7 +565,7 @@ public class EditableMesh
 			result.Indices.Add( i * 4 + 3 );
 		}
 
-		result.UpdateMeshData();
+		result.Refresh();
 
 		return result;
 	}
