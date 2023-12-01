@@ -24,19 +24,25 @@ public class MeshPartEditor : Widget
 
 		Layout = Layout.Column();
 		Layout.Spacing = 4;
-		Layout.Margin = 10;
 
-		Layout.Add( new Label( target.Part.Type.ToString() ) );
+		var heading = Layout.Add( new Widget( this ) );
+		heading.SetStyles( $"background-color:{Theme.ControlBackground.Hex}; padding: 4px 10px;" );
+		heading.Layout = Layout.Row();
+
+		var label = heading.Layout.Add( new Label( $"{target.Part.Type} operations" ) );
 
 		if ( target.Part.Type == MeshPartTypes.Face )
 		{
-			var extrudeButton = Layout.Add( new Button( "Extrude" ) );
+			var extrudeButton = Layout.Add( new Button.Clear( "Extrude" ) );
 			extrudeButton.Clicked = () => target.Mesh.ExtrudeFace( target.Part, 64 );
+
+			var makePlanar = Layout.Add( new Button.Clear( "Flatten" ) );
+			makePlanar.Clicked = () => target.Mesh.FlattenFace( target.Part );
 		}
 
 		if ( target.Part.Type != MeshPartTypes.Vertex )
 		{
-			var deleteButton = Layout.Add( new Button( "Delete" ) );
+			var deleteButton = Layout.Add( new Button.Clear( "Delete" ) );
 			deleteButton.Clicked = () => target.Mesh.Delete( target.Part );
 		}
 

@@ -79,6 +79,37 @@ public class EditableMesh
 		OnMeshChanged?.Invoke();
 	}
 
+	public void FlattenFace( MeshPart face )
+	{
+		if ( face == null || face.Type != MeshPartTypes.Face ) return;
+
+		var indices = new List<int> { face.A, face.B, face.C, face.D }.ToList();
+		var vertices = new List<SimpleVertex_S>()
+		{
+			Vertexes[face.A],
+			Vertexes[face.B],
+			Vertexes[face.C],
+			Vertexes[face.D],
+		};
+		var normal = CalculateAverageNormal( indices );
+		var pointOnPlane = vertices[0];
+
+		foreach ( var v in vertices )
+		{
+			var projectedPos = ProjectOntoPlane( v.Position, pointOnPlane.Position, normal );
+			UpdateVertexPosition( v.DistinctIndex, projectedPos );
+		}
+
+		Refresh();
+
+		Vector3 ProjectOntoPlane( Vector3 point, Vector3 planePoint, Vector3 planeNormal )
+		{
+			var toPoint = point - planePoint;
+			var distance = Vector3.Dot( toPoint, planeNormal );
+			return point - (planeNormal * distance);
+		}
+	}
+
 	public void ExtrudeFace( MeshPart face, float distance )
 	{
 		if ( face == null || face.Type != MeshPartTypes.Face ) return;
